@@ -1,0 +1,99 @@
+* { box-sizing: border-box; margin: 0; padding: 0; font-family: "Segoe UI", sans-serif; }
+    body { background: #f6f7fb; color: #333; }
+
+header {
+    position: fixed;
+    top: 0; left: 0; width: 100%;
+    background: #fff;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    z-index: 1000;
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 10px 20px;
+}
+
+header h1 { font-size: 1.2em; color: #0a4ba3; }
+header nav a {
+    text-decoration: none; color: #333; margin: 0 10px;
+    font-weight: 500; transition: color .2s;
+}
+header nav a:hover { color: #0a4ba3; }
+
+main { padding: 100px 20px 50px; max-width: 1200px; margin: auto; }
+
+.categorias {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.categoria {
+    background: white; border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    padding: 15px;
+    transition: transform .2s;
+}
+.categoria:hover { transform: translateY(-3px); }
+
+.categoria h2 { color: #0a4ba3; margin-bottom: 10px; font-size: 1.1em; }
+
+.servicio {
+    border-top: 1px solid #eee;
+    padding: 10px 0;
+    cursor: pointer;
+    transition: background .2s;
+}
+.servicio:first-child { border-top: none; }
+.servicio:hover { background: #f0f4ff; }
+.servicio strong { display: block; color: #222; font-size: 1em; }
+.servicio span { color: #0a4ba3; font-weight: bold; }
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0,0,0,0.5);
+    justify-content: center; align-items: center;
+    z-index: 2000;
+    padding: 20px;
+}
+
+.modal-content {
+    background: #fff;
+    border-radius: 10px;
+    max-width: 400px;
+    width: 100%;
+    padding: 20px;
+    position: relative;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    animation: fadeIn .3s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.close {
+    position: absolute;
+    top: 10px; right: 15px;
+    font-size: 1.2em;
+    cursor: pointer;
+    color: #666;
+}
+
+footer {
+    text-align: center;
+    padding: 30px 10px;
+    color: #555;
+    font-size: 0.9em;
+    background: #fff;
+    box-shadow: 0 -2px 8px rgba(0,0,0,0.05);
+    margin-top: 30px;
+}
+
+@media (max-width: 600px) {
+    header h1 { font-size: 1em; }
+    header nav a { margin: 0 5px; font-size: 0.9em; }
+    .modal-content { max-width: 90%; }
+}
