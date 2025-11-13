@@ -1,78 +1,293 @@
+// ===============================================
+// 🔧 RJVS DIYTech Solutions - Servicios Dinámicos
+// ===============================================
+
+// --- CATEGORÍAS Y SERVICIOS ---
 const categorias = [
-    { titulo:"⚙️ Mantenimiento y Reparación", servicios:[
-        ["Limpieza interna de PC",300,"Eliminación de polvo, ventiladores y mejora térmica."],
-        ["Mantenimiento completo (hardware + software)",450,"Revisión general, limpieza física y optimización."],
-        ["Cambio de pasta térmica",250,"Reemplazo profesional para mejor disipación térmica."],
-        ["Instalación o cambio de SSD",400,"Instalación, clonación y migración de sistema."],
-        ["Reparación de pantalla de laptop",800,"Cambio de display compatible y calibrado."],
-        ["Flasheo de PC / BIOS",350,"Actualización o restauración de firmware dañado."],
-        ["Cambio de teclado o touchpad",600,"Reemplazo completo con piezas nuevas."]
-      ]},
-      { titulo:"📱 Servicio Técnico Móvil", servicios:[
-        ["Flasheo Android / iPhone",400,"Restauración del sistema o eliminación de bloqueos."],
-        ["Cambio de display / batería",500,"Reemplazo de pantallas o baterías dañadas."],
-        ["Recuperación de contraseña",200,"Restablecimiento de contraseñas olvidadas o BIOS."],
-        ["Instalación de apps y limpieza de virus",150,"Optimización completa del sistema móvil."]
-      ]},
-      { titulo:"🧠 Software y Sistemas", servicios:[
-        ["Instalación de Windows + drivers",350,"Configuración completa y optimización inicial."],
-        ["Instalación de Office / Antivirus",200,"Instalación segura y licencias confiables."],
-        ["Recuperación básica de archivos",300,"Recuperación de datos eliminados."],
-        ["Configuración de arranque dual",400,"Windows + Linux sin pérdida de información."],
-        ["Optimización de rendimiento",250,"Limpieza y ajustes de procesos."]
-      ]},
-      { titulo:"🌐 Redes y Periféricos", servicios:[
-        ["Configuración Wi-Fi / repetidor",300,"Mejor cobertura y seguridad de red doméstica."],
-        ["Instalación de impresoras / escáneres",250,"Instalación local o en red."],
-        ["Configuración de cámaras IP",600,"Vigilancia y acceso remoto seguro."],
-        ["Diagnóstico de red lenta",150,"Análisis y optimización de conexión."]
-      ]},
-      { titulo:"💻 Soporte Remoto", servicios:[
-        ["Asistencia remota (AnyDesk / RustDesk)",150,"Soluciones rápidas sin salir de casa."],
-        ["Instalación remota de software",200,"Instalación segura vía conexión remota."],
-        ["Optimización remota",250,"Limpieza y mantenimiento desde internet."]
-      ]},
-      { titulo:"🚀 Servicios Especiales", servicios:[
-        ["Asesoría en compra de equipo",200,"Te ayudo a elegir la mejor PC o laptop según tu uso."],
-        ["Recuperación avanzada de datos",700,"Archivos dañados, USB o discos duros corruptos."],
-        ["Reballing / reparación de tarjeta madre",900,"Solución profesional a fallos de GPU/CPU."],
-        ["Ensamblado de PC personalizada",500,"Diseño y armado según tus necesidades."]
-    ]}
+  {
+    titulo: "Mantenimiento de Software",
+    servicios: [
+      [
+        "Instalación de aplicaciones",
+        "250 - 1,250",
+        "Instalación de software profesional, desde suites de ofimática hasta programas de diseño y arquitectura.",
+        [
+          "servicios/software/instalacion_aplicaciones_01.jpg",
+          "servicios/software/instalacion_aplicaciones_02.jpg",
+          "servicios/software/instalacion_aplicaciones_03.png",
+        ],
+      ],
+      [
+        "Optimización del sistema",
+        "350 - 500",
+        "Aceleramos tu equipo al máximo: limpieza de procesos, arranque rápido y eliminación de archivos innecesarios.",
+        [
+          "servicios/software/optimizacion_sistema_01.jpg",
+          "servicios/software/optimizacion_sistema_02.jpg",
+          "servicios/software/optimizacion_sistema_03.jpg",
+        ],
+      ],
+      [
+        "Eliminación de virus + Antivirus",
+        "300 - 600",
+        "Limpieza profunda, protección en tiempo real y optimización de seguridad.",
+        [
+          "servicios/software/eliminacion_virus_01.jpg",
+          "servicios/software/eliminacion_virus_02.jpg",
+          "servicios/software/eliminacion_virus_03.jpg",
+        ],
+      ],
+      [
+        "Recuperación de contraseña",
+        "100 - 350",
+        "Restauración de contraseñas locales o de cuenta Microsoft.",
+        [
+          "servicios/software/recuperacion_contraseña_01.jpg",
+          "servicios/software/recuperacion_contraseña_02.jpg",
+        ],
+      ],
+      [
+        "Instalación de Office / Activación Windows",
+        "100 - 200",
+        "Instalación de Office LTSC o activación segura del sistema.",
+        [
+          "servicios/software/office_windows_01.jpg",
+          "servicios/software/office_windows_02.png",
+        ],
+      ],
+    ],
+  },
+  {
+    titulo: "Mantenimiento de Hardware",
+    servicios: [
+      [
+        "Limpieza superficial",
+        "250 - 300",
+        "Limpieza externa profesional sin abrir el equipo.",
+        [
+          "servicios/hardware/limpieza_superficial_01.jpg",
+          "servicios/hardware/limpieza_superficial_02.jpg",
+          "servicios/hardware/limpieza_superficial_03.jpg",
+        ],
+      ],
+      [
+        "Limpieza interna",
+        "300 - 500",
+        "Eliminación de polvo, mantenimiento preventivo y mejora térmica.",
+        [
+          "servicios/hardware/limpieza_interna_01.jpg",
+          "servicios/hardware/limpieza_interna_02.jpg",
+          "servicios/hardware/limpieza_interna_03.jpg",
+        ],
+      ],
+      [
+        "Cambio de componentes",
+        "400 - 1,500",
+        "Instalación o reemplazo de piezas (RAM, SSD, GPU, etc.).",
+        [
+          "servicios/hardware/cambio_componentes_01.png",
+          "servicios/hardware/cambio_componentes_02.jpg",
+        ],
+      ],
+      [
+        "Cambio de pasta térmica",
+        "300 - 500",
+        "Renovación de pasta térmica para evitar sobrecalentamientos.",
+        [
+          "servicios/hardware/cambio_pasta_termica_01.jpg",
+          "servicios/hardware/cambio_pasta_termica_02.jpg",
+        ],
+      ],
+      [
+        "Mantenimiento electrónico general",
+        "400 - 900",
+        "Limpieza y diagnóstico de placas, fuentes y periféricos.",
+        [
+          "servicios/hardware/mantenimiento_electronico_01.jpg",
+          "servicios/hardware/mantenimiento_electronico_02.jpg",
+          "servicios/hardware/mantenimiento_electronico_03.jpg",
+        ],
+      ],
+    ],
+  },
+  {
+    titulo: "Desarrollo de Software",
+    servicios: [
+      [
+        "Apps de escritorio con Electron + Node.js",
+        "500 - 10,000",
+        "Desarrollo de sistemas personalizados: inventarios, cobros, reproductores multimedia o apps a medida.",
+        [
+          "servicios/desarrollo/electron_app_01.jpg",
+          "servicios/desarrollo/electron_app_02.jpg",
+          "servicios/desarrollo/electron_app_03.jpg",
+        ],
+      ],
+      [
+        "Sitios web profesionales",
+        "400 - 3,000",
+        "Diseño y desarrollo de páginas web responsivas con HTML, CSS, JS y Node.js.",
+        [
+          "servicios/desarrollo/sitio_web_01.jpg",
+          "servicios/desarrollo/sitio_web_02.jpg",
+          "servicios/desarrollo/sitio_web_03.jpg",
+        ],
+      ],
+      [
+        "Sistemas administrativos personalizados",
+        "1,500 - 10,000",
+        "Desarrollo de sistemas para control de inventario, ventas y usuarios.",
+        [
+          "servicios/desarrollo/sistema_admin_01.jpg",
+          "servicios/desarrollo/sistema_admin_02.jpg",
+        ],
+      ],
+    ],
+  },
+  {
+    titulo: "Manualidades con LEDs",
+    servicios: [
+      [
+        "Lámparas personalizadas",
+        "250 - 750",
+        "Diseños únicos en MDF con efectos luminosos.",
+        [
+          "servicios/manualidades/lampara_personalizada_01.jpg",
+          "servicios/manualidades/lampara_personalizada_02.jpg",
+        ],
+      ],
+      [
+        "Cuadros gamer o anime",
+        "200 - 500",
+        "Decoraciones con tus personajes favoritos.",
+        [
+          "servicios/manualidades/cuadros_gamer_anime_01.jpg",
+          "servicios/manualidades/cuadros_gamer_anime_02.jpg",
+        ],
+      ],
+      [
+        "Decoraciones para hogar",
+        "100 - 450",
+        "Iluminación cálida y moderna para cualquier ambiente.",
+        [
+          "servicios/manualidades/decoracion_hogar_01.jpg",
+          "servicios/manualidades/decoracion_hogar_02.jpg",
+        ],
+      ],
+      [
+        "Decoraciones para oficina",
+        "200 - 570",
+        "Diseños minimalistas con toque profesional.",
+        [
+          "servicios/manualidades/decoracion_oficina_01.jpg",
+          "servicios/manualidades/decoracion_oficina_02.jpg",
+        ],
+      ]
+    ],
+  },
 ];
 
+// ===============================================
+// 🧩 RENDER DINÁMICO DE SERVICIOS
+// ===============================================
 const lista = document.getElementById("lista-categorias");
+
+categorias.forEach((cat) => {
+  const div = document.createElement("div");
+  div.className = "categoria";
+  div.innerHTML = `<h2>${cat.titulo}</h2>`;
+
+  cat.servicios.forEach((serv) => {
+    const item = document.createElement("div");
+    item.className = "servicio";
+    item.innerHTML = `
+      <strong>${serv[0]}</strong>
+      <span class="precio">$${serv[1]} MXN</span>
+      <p>${serv[2]}</p>
+    `;
+    item.onclick = () => mostrarModal(serv[0], serv[2], serv[1], serv[3]);
+    div.appendChild(item);
+  });
+
+  lista.appendChild(div);
+});
+
+// ===============================================
+// 🎞️ MODAL + CARRUSEL (usa botones del HTML)
+// ===============================================
 const modal = document.getElementById("modal");
+const cerrarModalBtn = document.getElementById("cerrarModal");
 const titulo = document.getElementById("modal-titulo");
 const descripcion = document.getElementById("modal-descripcion");
 const precio = document.getElementById("modal-precio");
+const carousel = document.getElementById("modal-carousel");
+const prevBtn = document.getElementById("prev-img");
+const nextBtn = document.getElementById("next-img");
 
-categorias.forEach(cat=>{
-    const div = document.createElement("div");
-    div.className = "categoria";
-    div.innerHTML = `<h2>${cat.titulo}</h2>`;
-    cat.servicios.forEach(s=>{
-    const item = document.createElement("div");
-    item.className = "servicio";
-    item.innerHTML = `<strong>${s[0]}</strong><span>$${s[1]}</span><p style='font-size:0.9em;color:#555;'>${s[2]}</p>`;
-    item.onclick = ()=>mostrarModal(s[0],s[2],s[1]);
-    div.appendChild(item);
-    });
-    lista.appendChild(div);
-});
+let index = 0;
+let slides = [];
+let interval;
 
-function mostrarModal(nombre,desc,precioMXN){
-    titulo.textContent = nombre;
-    descripcion.textContent = desc;
-    precio.textContent = precioMXN;
-    modal.style.display = "flex";
-    document.body.style.overflow = "hidden";
+function mostrarModal(nombre, desc, precioMXN, imgs) {
+  titulo.textContent = nombre;
+  descripcion.textContent = desc;
+  precio.textContent = precioMXN;
+
+  if (!imgs || imgs.length === 0) {
+    carousel.innerHTML = "<p>Sin imágenes disponibles.</p>";
+  } else {
+    carousel.innerHTML = imgs
+      .map(
+        (img, i) => `
+        <div class="slide ${i === 0 ? "active" : ""}">
+          <img src="assets/${img}" alt="${nombre}">
+        </div>`
+      )
+      .join("");
+    slides = carousel.querySelectorAll(".slide");
+  }
+
+  modal.style.display = "flex";
+  document.body.style.overflow = "hidden";
+
+  iniciarCarrusel();
 }
 
-function cerrarModal(){
-    modal.style.display = "none";
-    document.body.style.overflow = "auto";
+function cerrarModal() {
+  modal.style.display = "none";
+  document.body.style.overflow = "auto";
+  detenerCarrusel();
 }
 
-window.onclick = function(e){
-    if(e.target == modal) cerrarModal();
+cerrarModalBtn.onclick = cerrarModal;
+window.onclick = (e) => {
+  if (e.target === modal) cerrarModal();
+};
+
+function iniciarCarrusel() {
+  if (!slides.length) return;
+  index = 0;
+  detenerCarrusel();
+  interval = setInterval(() => cambiarSlide(1), 6000);
 }
+
+function detenerCarrusel() {
+  clearInterval(interval);
+}
+
+function cambiarSlide(direccion) {
+  if (!slides.length) return;
+  slides[index].classList.remove("active");
+  index = (index + direccion + slides.length) % slides.length;
+  slides[index].classList.add("active");
+}
+
+// Control manual con botones del HTML
+prevBtn.onclick = () => {
+  detenerCarrusel();
+  cambiarSlide(-1);
+};
+nextBtn.onclick = () => {
+  detenerCarrusel();
+  cambiarSlide(1);
+};
