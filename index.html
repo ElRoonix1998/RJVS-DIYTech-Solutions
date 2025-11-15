@@ -3,69 +3,151 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>RJVS DIYTech Solutions | Servicios Tecnológicos</title>
-  <link rel="stylesheet" href="src/styles/style.css" />
-  <link rel="icon" href="assets/icon.png" type="image/png" />
+  <title>RJVS DIYTech Solutions - Servicios Profesionales</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+    body { background: #f5f6fa; color: #2c3e50; }
+
+    header { background: #1e1e2f; padding: 25px 15px; color: #fff; text-align: center; }
+    header h1 { font-size: 2rem; letter-spacing: 1px; }
+    header p { font-size: 1rem; opacity: 0.8; }
+
+    .container { width: 90%; max-width: 1100px; margin: 40px auto; }
+
+    .section-title { font-size: 1.8rem; margin-bottom: 10px; color: #1e1e2f; text-align: center; }
+    .section-sub { text-align: center; font-size: 1rem; margin-bottom: 35px; color: #444; }
+
+    .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
+    .card {
+      background: #fff;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      transition: 0.25s ease;
+    }
+    .card:hover { transform: translateY(-5px); box-shadow: 0 8px 20px rgba(0,0,0,0.12); }
+    .card h3 { font-size: 1.3rem; margin-bottom: 10px; color: #1e1e2f; }
+    .card p { font-size: 0.95rem; margin-bottom: 10px; line-height: 1.5; }
+
+    ul { margin-top: 10px; padding-left: 20px; }
+    ul li { margin-bottom: 6px; }
+
+    footer {
+      margin-top: 50px;
+      background: #1e1e2f;
+      color: #fff;
+      padding: 25px;
+      text-align: center;
+      font-size: 0.9rem;
+    }
+
+    .cta {
+      margin-top: 40px;
+      text-align: center;
+    }
+    .cta a {
+      background: #007bff;
+      padding: 12px 25px;
+      border-radius: 8px;
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.25s;
+    }
+    .cta a:hover { background: #005fcb; }
+  </style>
 </head>
 <body>
-  <header class="header">
-    <div class="logo">
-      <img src="assets/logo.png" alt="Logo RJVS" />
-      <h1>RJVS DIYTech Solutions</h1>
+
+<header>
+  <h1>RJVS DIYTech Solutions</h1>
+  <p>Instalación • Optimización • Reparación • Asesoría Profesional</p>
+</header>
+
+<div class="container">
+  <h2 class="section-title">Servicios Profesionales</h2>
+  <p class="section-sub">Soluciones confiables y de alta calidad para tu equipo de cómputo, software y dispositivos móviles.</p>
+
+  <div class="cards">
+
+    <div class="card">
+      <h3>💻 Instalación de Software Profesional</h3>
+      <p>Deja tus herramientas listas para trabajar con configuraciones optimizadas.</p>
+      <ul>
+        <li>Suite Adobe (Photoshop, Illustrator, etc.)</li>
+        <li>AutoCAD, Revit, SketchUp</li>
+        <li>Instalación y preparación de entornos profesionales</li>
+        <li>Ajustes y compatibilidad según el hardware</li>
+      </ul>
     </div>
-    <nav class="nav">
-      <a href="#inicio" class="nav-link">Inicio</a>
-      <a href="#servicios" class="nav-link">Servicios</a>
-      <a href="#contacto" class="nav-link">Contacto</a>
-    </nav>
-  </header>
 
-  <main id="inicio">
-    <section class="hero">
-      <div class="hero-content">
-        <h2>💻 Soporte, Innovación y Tecnología a tu Alcance</h2>
-        <p>Servicios profesionales en mantenimiento, reparación y soluciones informáticas personalizadas.</p>
-        <a href="#servicios" class="btn-hero">Ver servicios</a>
-      </div>
-    </section>
-
-    <section id="servicios">
-      <h2 class="titulo-seccion">Nuestros Servicios Profesionales</h2>
-      <p class="descripcion-seccion">Selecciona una categoría para ver los servicios disponibles.</p>
-      <div class="categorias" id="lista-categorias"></div>
-    </section>
-  </main>
-
-  <!-- Modal dinámico -->
-  <div class="modal" id="modal">
-    <div class="modal-content">
-      <span class="close" id="cerrarModal">&times;</span>
-      <h3 id="modal-titulo"></h3>
-
-      <!-- Carrusel con botones dentro del HTML -->
-      <div class="carousel-container">
-        <button class="carousel-btn left" id="prev-img">&#10094;</button>
-        <div class="carousel" id="modal-carousel">
-          <!-- Las imágenes del carrusel se insertan dinámicamente -->
-        </div>
-        <button class="carousel-btn right" id="next-img">&#10095;</button>
-      </div>
-
-      <div class="modal-info">
-        <p id="modal-descripcion"></p>
-        <p><strong>Rango de precio:</strong> <span id="modal-precio"></span> MXN</p>
-        <p class="extra">Atención a domicilio o remota disponible.</p>
-      </div>
+    <div class="card">
+      <h3>⚙️ Optimización de PC y Laptops</h3>
+      <p>Aumenta la velocidad de tu equipo y mejora el rendimiento.</p>
+      <ul>
+        <li>Eliminación de programas innecesarios</li>
+        <li>Optimización de arranque</li>
+        <li>Diagnóstico de rendimiento</li>
+        <li>Actualización de controladores</li>
+      </ul>
     </div>
+
+    <div class="card">
+      <h3>🔧 Reparación de PC y Laptops</h3>
+      <p>Mantenimiento completo y reparaciones para cualquier problema.</p>
+      <ul>
+        <li>Cambios de piezas y diagnósticos</li>
+        <li>Mantenimiento físico y limpieza interna</li>
+        <li>Formateo con respaldo</li>
+        <li>Corrección de fallas del sistema</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>📱 Reparación de Celulares</h3>
+      <p>Soluciones prácticas y rápidas para tu smartphone.</p>
+      <ul>
+        <li>Cambio de batería</li>
+        <li>Cambio de pantalla</li>
+        <li>Optimización del sistema</li>
+        <li>Recuperación de datos</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>🛠️ Asesoría y Soporte Técnico</h3>
+      <p>Te guío paso a paso para mejorar tu experiencia tecnológica.</p>
+      <ul>
+        <li>Elección de hardware para tus proyectos</li>
+        <li>Configuración de equipos nuevos</li>
+        <li>Instalación de entornos de trabajo</li>
+        <li>Asistencia remota</li>
+      </ul>
+        <div class="card">
+      <h3>🌐 Redes y Configuración de Internet</h3>
+      <p>Configuración profesional de redes para hogares y negocios.</p>
+      <ul>
+        <li>Optimización de red WiFi y cableada</li>
+        <li>Configuración de módems, routers y repetidores</li>
+        <li>Segmentación de red y seguridad básica</li>
+        <li>Diagnóstico de fallas de conexión</li>
+      </ul>
+    </div>
+
   </div>
 
-  <footer id="contacto">
-    <div class="contact-info">
-      <p>📞 <a href="tel:3223533329">322-353-3329</a> | ✉️ <a href="mailto:elroonix98@gmail.com">elroonix98@gmail.com</a></p>
-      <p>© 2025 RJVS DIYTech Solutions — Innovación y Tecnología al alcance de todos.</p>
-    </div>
-  </footer>
+  <div class="cta">
 
-  <script src="src/scripts/script.js"></script>
+  <div class="cta">
+    <a href="https://wa.me/523221350635" target="_blank">📩 Contáctame por WhatsApp</a>
+  </div>
+
+</div>
+
+<footer>
+  RJVS DIYTech Solutions © 2025 — Servicios Técnicos Profesionales y de Calidad
+</footer>
+
 </body>
 </html>
