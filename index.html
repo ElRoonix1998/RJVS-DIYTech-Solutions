@@ -1,153 +1,138 @@
+<!-- 🌐 Página Profesional de Servicios Técnicos - RJVS DIYTech Solutions -->
 <!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>RJVS DIYTech Solutions - Servicios Profesionales</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <title>RJVS DIYTech Solutions - Servicios Técnicos</title>
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
-    body { background: #f5f6fa; color: #2c3e50; }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Inter", sans-serif;
+    }
 
-    header { background: #1e1e2f; padding: 25px 15px; color: #fff; text-align: center; }
-    header h1 { font-size: 2rem; letter-spacing: 1px; }
-    header p { font-size: 1rem; opacity: 0.8; }
+    body {
+      background: #f5f6fa;
+      color: #333;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
 
-    .container { width: 90%; max-width: 1100px; margin: 40px auto; }
+    header {
+      background: linear-gradient(135deg, #1d3557, #457b9d);
+      color: #fff;
+      padding: 3rem 1rem;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
 
-    .section-title { font-size: 1.8rem; margin-bottom: 10px; color: #1e1e2f; text-align: center; }
-    .section-sub { text-align: center; font-size: 1rem; margin-bottom: 35px; color: #444; }
+    header h1 {
+      font-size: 2.8rem;
+      margin-bottom: 0.5rem;
+    }
 
-    .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
-    .card {
+    header p {
+      font-size: 1.2rem;
+      opacity: 0.9;
+    }
+
+    .contenedor {
+      max-width: 1200px;
+      margin: 2.5rem auto;
+      padding: 0 1rem;
+    }
+
+    .servicios-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .servicio {
       background: #fff;
-      padding: 25px;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-      transition: 0.25s ease;
+      padding: 2rem;
+      border-radius: 14px;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+      transition: all 0.3s ease;
+      border-left: 6px solid #457b9d;
     }
-    .card:hover { transform: translateY(-5px); box-shadow: 0 8px 20px rgba(0,0,0,0.12); }
-    .card h3 { font-size: 1.3rem; margin-bottom: 10px; color: #1e1e2f; }
-    .card p { font-size: 0.95rem; margin-bottom: 10px; line-height: 1.5; }
 
-    ul { margin-top: 10px; padding-left: 20px; }
-    ul li { margin-bottom: 6px; }
+    .servicio:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    }
 
-    footer {
-      margin-top: 50px;
-      background: #1e1e2f;
-      color: #fff;
-      padding: 25px;
+    .servicio h3 {
+      font-size: 1.6rem;
+      margin-bottom: 0.8rem;
+      color: #1d3557;
+    }
+
+    .servicio p {
+      font-size: 1rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .footer {
       text-align: center;
-      font-size: 0.9rem;
+      padding: 2rem 1rem;
+      margin-top: 3rem;
+      background: #1d3557;
+      color: #fff;
     }
 
-    .cta {
-      margin-top: 40px;
-      text-align: center;
-    }
-    .cta a {
-      background: #007bff;
-      padding: 12px 25px;
-      border-radius: 8px;
-      color: #fff;
-      text-decoration: none;
-      font-weight: bold;
-      transition: 0.25s;
-    }
-    .cta a:hover { background: #005fcb; }
+    .footer p { opacity: 0.8; }
   </style>
 </head>
 <body>
+  <header>
+    <h1>RJVS DIYTech Solutions</h1>
+    <p>Servicios profesionales de soporte técnico, redes y mantenimiento • Puerto Vallarta</p>
+  </header>
 
-<header>
-  <h1>RJVS DIYTech Solutions</h1>
-  <p>Instalación • Optimización • Reparación • Asesoría Profesional</p>
-</header>
+  <section class="contenedor">
+    <h2 style="text-align:center; margin-bottom:1.5rem; font-size:2rem; color:#1d3557;">Servicios Disponibles</h2>
+    <div class="servicios-grid">
 
-<div class="container">
-  <h2 class="section-title">Servicios Profesionales</h2>
-  <p class="section-sub">Soluciones confiables y de alta calidad para tu equipo de cómputo, software y dispositivos móviles.</p>
+      <div class="servicio">
+        <h3>💻 Instalación de Software</h3>
+        <p>Instalación y configuración de software profesional: ofimática, diseño, arquitectura, edición, contabilidad y más.</p>
+        <p>🔹 Instalación limpia<br>🔹 Activación legítima (si aplica)<br>🔹 Eliminación de conflictos y versiones antiguas</p>
+      </div>
 
-  <div class="cards">
+      <div class="servicio">
+        <h3>⚙️ Optimización de PC</h3>
+        <p>Deja tu equipo funcionando como nuevo.</p>
+        <p>🔹 Limpieza profunda del sistema<br>🔹 Aceleración de arranque<br>🔹 Corrección de errores<br>🔹 Mejora de rendimiento general</p>
+      </div>
 
-    <div class="card">
-      <h3>💻 Instalación de Software Profesional</h3>
-      <p>Deja tus herramientas listas para trabajar con configuraciones optimizadas.</p>
-      <ul>
-        <li>Suite Adobe (Photoshop, Illustrator, etc.)</li>
-        <li>AutoCAD, Revit, SketchUp</li>
-        <li>Instalación y preparación de entornos profesionales</li>
-        <li>Ajustes y compatibilidad según el hardware</li>
-      </ul>
+      <div class="servicio">
+        <h3>🔧 Reparación de PC y Laptops</h3>
+        <p>Diagnóstico y reparación profesional de fallas comunes y avanzadas.</p>
+        <p>🔹 Formateo y reinstalación<br>🔹 Reparación de Windows<br>🔹 Cambio de disco / memoria<br>🔹 Limpieza interna completa</p>
+      </div>
+
+      <div class="servicio">
+        <h3>📱 Reparación de Celulares</h3>
+        <p>Solución de problemas comunes de software y mantenimiento preventivo.</p>
+        <p>🔹 Eliminación de virus<br>🔹 Recuperación de sistema<br>🔹 Optimización de rendimiento<br>🔹 Respaldo seguro</p>
+      </div>
+
+      <div class="servicio">
+        <h3>🌐 Redes y Configuración de Internet</h3>
+        <p>Instalación, mantenimiento y optimización de redes domésticas o empresariales.</p>
+        <p>🔹 Configuración de módems y routers<br>🔹 Extensión de WiFi<br>🔹 Diagnóstico de lentitud<br>🔹 Solución de fallas de conexión<br>🔹 Configuración de seguridad</p>
+      </div>
+
     </div>
+  </section>
 
-    <div class="card">
-      <h3>⚙️ Optimización de PC y Laptops</h3>
-      <p>Aumenta la velocidad de tu equipo y mejora el rendimiento.</p>
-      <ul>
-        <li>Eliminación de programas innecesarios</li>
-        <li>Optimización de arranque</li>
-        <li>Diagnóstico de rendimiento</li>
-        <li>Actualización de controladores</li>
-      </ul>
-    </div>
-
-    <div class="card">
-      <h3>🔧 Reparación de PC y Laptops</h3>
-      <p>Mantenimiento completo y reparaciones para cualquier problema.</p>
-      <ul>
-        <li>Cambios de piezas y diagnósticos</li>
-        <li>Mantenimiento físico y limpieza interna</li>
-        <li>Formateo con respaldo</li>
-        <li>Corrección de fallas del sistema</li>
-      </ul>
-    </div>
-
-    <div class="card">
-      <h3>📱 Reparación de Celulares</h3>
-      <p>Soluciones prácticas y rápidas para tu smartphone.</p>
-      <ul>
-        <li>Cambio de batería</li>
-        <li>Cambio de pantalla</li>
-        <li>Optimización del sistema</li>
-        <li>Recuperación de datos</li>
-      </ul>
-    </div>
-
-    <div class="card">
-      <h3>🛠️ Asesoría y Soporte Técnico</h3>
-      <p>Te guío paso a paso para mejorar tu experiencia tecnológica.</p>
-      <ul>
-        <li>Elección de hardware para tus proyectos</li>
-        <li>Configuración de equipos nuevos</li>
-        <li>Instalación de entornos de trabajo</li>
-        <li>Asistencia remota</li>
-      </ul>
-        <div class="card">
-      <h3>🌐 Redes y Configuración de Internet</h3>
-      <p>Configuración profesional de redes para hogares y negocios.</p>
-      <ul>
-        <li>Optimización de red WiFi y cableada</li>
-        <li>Configuración de módems, routers y repetidores</li>
-        <li>Segmentación de red y seguridad básica</li>
-        <li>Diagnóstico de fallas de conexión</li>
-      </ul>
-    </div>
-
-  </div>
-
-  <div class="cta">
-
-  <div class="cta">
-    <a href="https://wa.me/523221350635" target="_blank">📩 Contáctame por WhatsApp</a>
-  </div>
-
-</div>
-
-<footer>
-  RJVS DIYTech Solutions © 2025 — Servicios Técnicos Profesionales y de Calidad
-</footer>
+  <footer class="footer">
+    <p>RJVS DIYTech Solutions • Puerto Vallarta, Jalisco</p>
+    <p>Soporte Técnico Profesional • Redes • PC • Laptops • Celulares</p>
+  </footer>
 
 </body>
 </html>
