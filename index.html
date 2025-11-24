@@ -4,93 +4,128 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
 <title>RJVS Tech — Soporte Técnico Profesional</title>
-<meta name="description" content="Servicios técnicos profesionales: mantenimiento, optimización, recuperación de datos y soporte remoto. Puerto Vallarta. 322 353 3329">
+<meta name="description" content="Soporte técnico profesional en Puerto Vallarta. Mantenimiento, optimización, recuperación de datos, migración HDD→SSD. Contacto WhatsApp 322 353 3329">
 <style>
+  /* ---------- Paleta mejorada (contraste reforzado) ---------- */
   :root{
-    --bg:#f4f7fb; --card:#ffffff; --muted:#51607a;
-    --accent:#006db3; --accent-2:#00a3ff; --success:#25D366;
-    --radius:14px; --shadow:0 14px 40px rgba(8,30,58,0.08);
-    --max:1200px; --glass: rgba(255,255,255,0.6);
+    --bg: #f4f7fb;
+    --card: #ffffffee;
+    --muted: #34445c;         /* más contraste */
+    --accent: #00509e;        /* azul más oscuro y con punch */
+    --accent-2: #008cff;
+    --success: #25D366;
+    --radius: 14px;
+    --shadow: 0 14px 40px rgba(8,30,58,0.08);
+    --max: 1200px;
+    --glass: rgba(255,255,255,0.6);
     font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    color-scheme: light;
   }
+
   @media (prefers-color-scheme: dark){
-    :root{ --bg:#071227; --card:#081426; --muted:#9fb3c9; --accent:#2fa7ff; --accent-2:#1b6fb2; color-scheme:dark; }
+    :root{
+      --bg: #071227;
+      --card: #081426;
+      --muted: #9fb3c9;
+      --accent: #2fa7ff;
+      --accent-2: #1b6fb2;
+      color-scheme: dark;
+    }
   }
 
+  /* ---------- Reset & base ---------- */
   *{box-sizing:border-box}
-  html,body{height:100%;margin:0;background:linear-gradient(180deg,var(--bg),#eaf4ff);-webkit-font-smoothing:antialiased}
+  html,body{height:100%;margin:0;background:linear-gradient(180deg,var(--bg),#eaf4ff);-webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale; color: #0b1b2b}
   a{color:inherit}
+  img{max-width:100%;display:block}
 
-  /* layout */
-  .site{max-width:var(--max);margin:28px auto;padding:18px}
+  /* Prevent background overscroll on mobile when modal open */
+  html, body { overscroll-behavior-y: auto; } /* default */
+  body.modal-open { height: 100vh; overflow: hidden; -webkit-overflow-scrolling: none; }
+
+  /* ---------- Layout ---------- */
+  .site{max-width:var(--max);margin:24px auto;padding:18px}
   header{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:12px;border-radius:12px;background:linear-gradient(90deg,transparent,var(--glass));backdrop-filter:blur(6px);border:1px solid rgba(2,6,23,0.04)}
   .brand{display:flex;gap:12px;align-items:center}
-  .logo{width:56px;height:56px;border-radius:12px;background:linear-gradient(135deg,var(--accent),var(--accent-2));display:grid;place-items:center;color:white;font-weight:800}
+  .logo{width:56px;height:56px;border-radius:12px;background:linear-gradient(135deg,var(--accent),var(--accent-2));display:grid;place-items:center;color:white;font-weight:800;font-size:18px}
   header h1{margin:0;font-size:1.15rem;color:var(--accent)}
   header p{margin:0;font-size:0.85rem;color:var(--muted)}
-
   nav{display:flex;gap:10px;align-items:center}
   .btn{padding:8px 12px;border-radius:10px;background:transparent;border:1px solid rgba(2,6,23,0.06);font-weight:700;cursor:pointer}
   .btn-primary{background:linear-gradient(90deg,var(--accent),var(--accent-2));color:white;border:none;box-shadow:0 10px 30px rgba(0,113,200,0.12)}
 
-  /* hero */
+  /* ---------- Hero ---------- */
   .hero{display:grid;grid-template-columns:1fr 360px;gap:22px;margin-top:18px}
   @media (max-width:980px){.hero{grid-template-columns:1fr}}
   .hero-card{background:var(--card);padding:20px;border-radius:14px;box-shadow:var(--shadow)}
   .hero-card h2{margin:0;color:var(--accent);font-size:1.6rem}
   .hero-card p{color:var(--muted);margin-top:8px}
   .tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
-  .tag{padding:8px 12px;border-radius:999px;background:rgba(0,0,0,0.04);font-weight:700;cursor:pointer}
+  .tag{padding:8px 12px;border-radius:999px;background:rgba(0,0,0,0.04);font-weight:700;cursor:pointer;border:1px solid rgba(0,0,0,0.04)}
 
   .contact-card{background:linear-gradient(180deg,var(--accent),var(--accent-2));color:white;padding:18px;border-radius:12px;display:flex;flex-direction:column;gap:10px}
   .contact-card .big{font-weight:900;font-size:1.2rem}
 
-  /* services grid */
+  /* ---------- Panel & Services ---------- */
   .panel{display:grid;grid-template-columns:1fr 360px;gap:28px;margin-top:20px}
   @media (max-width:980px){.panel{grid-template-columns:1fr}}
   .services-wrap{background:var(--card);padding:20px;border-radius:12px;box-shadow:var(--shadow)}
   .search-row{display:flex;gap:8px;align-items:center}
   .search{flex:1;padding:10px 12px;border-radius:10px;border:1px solid #e6eef8}
   .filters{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
-  .chip{padding:7px 10px;border-radius:999px;background:transparent;border:1px solid rgba(11,115,183,0.08);color:var(--accent);font-weight:700;cursor:pointer}
+  .chip{padding:7px 10px;border-radius:999px;background:transparent;border:1px solid rgba(11,115,183,0.12);color:var(--accent);font-weight:700;cursor:pointer}
   .chip[aria-pressed="true"]{background:linear-gradient(90deg,var(--accent),var(--accent-2));color:white;box-shadow:0 10px 24px rgba(11,115,183,0.12)}
 
   .services-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:16px}
   @media (max-width:780px){.services-grid{grid-template-columns:1fr}}
-  .card-service{display:flex;gap:12px;align-items:flex-start;padding:12px;border-radius:12px;border:1px solid #e9f3fb;background:linear-gradient(180deg,rgba(255,255,255,0.8),transparent);cursor:pointer;transition:transform .14s,box-shadow .14s}
+  .card-service{display:flex;gap:12px;align-items:flex-start;padding:12px;border-radius:12px;border:1px solid #e9f3fb;background:linear-gradient(180deg,rgba(255,255,255,0.9),transparent);cursor:pointer;transition:transform .14s,box-shadow .14s}
   .card-service:hover{transform:translateY(-6px);box-shadow:0 18px 40px rgba(11,95,150,0.06)}
+  .card-service:focus{box-shadow:0 0 0 4px rgba(0,80,158,0.12)}
   .svc-icon{width:56px;height:56px;border-radius:10px;background:linear-gradient(135deg,var(--accent),var(--accent-2));display:flex;align-items:center;justify-content:center;color:white;font-weight:800;flex:0 0 56px}
-  .svc-body{flex:1}
-  .svc-title{font-weight:800}
+  .svc-body{flex:1;text-align:left}
+  .svc-title{font-weight:800;color:#0b1b2b}
   .svc-sub{font-size:0.9rem;color:var(--muted);margin-top:6px}
   .svc-price{font-weight:900;color:var(--accent);align-self:flex-start}
 
-  /* modal */
-  .modal-backdrop{position:fixed;inset:0;background:rgba(2,6,23,0.6);display:none;align-items:center;justify-content:center;padding:16px;z-index:60}
-  .modal{background:var(--card);width:100%;max-width:960px;border-radius:12px;padding:18px;box-shadow:0 20px 60px rgba(2,6,23,0.6);transform:translateY(8px)}
-  .modal-header{display:flex;align-items:center;justify-content:space-between;gap:12px}
-  .modal-body{display:grid;grid-template-columns:320px 1fr;gap:16px;margin-top:12px}
-  @media (max-width:880px){.modal-body{grid-template-columns:1fr}}
+  /* ---------- Modal (responsive & scroll-safe) ---------- */
+  .modal-backdrop{
+    position:fixed;inset:0;background:rgba(2,6,23,0.6);display:none;align-items:center;justify-content:center;padding:16px;z-index:9999;
+    /* prevent background touch scroll */
+    touch-action: none;
+  }
+
+  .modal{
+    background:var(--card);width:100%;max-width:960px;border-radius:12px;padding:0;box-shadow:0 20px 60px rgba(2,6,23,0.6);
+    display:flex;flex-direction:column;overflow:hidden;
+    max-height: 92vh;
+  }
+
+  .modal-header{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 18px;border-bottom:1px solid rgba(0,0,0,0.04);background:linear-gradient(90deg,transparent,rgba(0,0,0,0.02))}
+  .modal-title{font-weight:800;font-size:1.08rem}
+  .modal-sub{color:var(--muted);font-size:0.95rem}
+
+  .modal-body{
+    display:grid;grid-template-columns:320px 1fr;gap:16px;padding:16px;overflow:auto; /* IMPORTANT: scroll inside modal */
+    -webkit-overflow-scrolling: touch;
+  }
+  @media (max-width:880px){ .modal-body{grid-template-columns:1fr} }
+
   .modal-image{width:100%;height:220px;object-fit:cover;border-radius:10px;background:#f3f7fb}
   .thumbs{display:flex;gap:8px;margin-top:8px}
   .thumbs img{width:64px;height:48px;object-fit:cover;border-radius:8px;cursor:pointer;border:2px solid transparent}
   .thumbs img.active{border-color:var(--accent)}
   .detail-list{margin:10px 0;padding-left:18px}
   .detail-list li{margin:8px 0}
-  .modal-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
-  .close-btn{background:transparent;border:0;font-size:22px;padding:6px;cursor:pointer}
-
-  /* accessibility focus */
-  :focus{outline:3px solid rgba(0,119,200,0.18);outline-offset:2px}
+  .modal-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px;padding-bottom:8px}
 
   /* small */
+  :focus{outline:3px solid rgba(0,119,200,0.18);outline-offset:2px}
   .muted{color:var(--muted)}
   .kicker{font-size:0.85rem;color:var(--muted);font-weight:700}
-
 </style>
 </head>
 <body>
-  <div class="site">
+  <div class="site" id="siteRoot">
     <header>
       <div class="brand">
         <div class="logo" aria-hidden>RT</div>
@@ -110,9 +145,9 @@
     <section class="hero" aria-label="Introducción">
       <div class="hero-card">
         <h2>Soporte técnico que realmente te ayuda</h2>
-        <p>Servicios centrados en estudiantes, profesionales y usuarios domésticos: mantenimiento, optimización, migración a SSD, recuperación de datos y soporte remoto.</p>
+        <p>Servicios para estudiantes, profesionales y usuarios: mantenimiento, optimización, migración a SSD, recuperación de datos y soporte remoto.</p>
 
-        <div class="tags" role="list">
+        <div class="tags" role="list" aria-hidden="true">
           <button class="tag" data-id="mantenimiento">Mantenimiento</button>
           <button class="tag" data-id="software">Instalación</button>
           <button class="tag" data-id="optimizacion">Optimización</button>
@@ -192,18 +227,18 @@
     <div class="modal" role="document" aria-labelledby="modalTitle">
       <div class="modal-header">
         <div>
-          <div id="modalTitle" style="font-weight:800;font-size:1.15rem"></div>
-          <div class="muted" id="modalSubtitle"></div>
+          <div id="modalTitle" class="modal-title"></div>
+          <div id="modalSubtitle" class="modal-sub muted"></div>
         </div>
         <div>
           <button class="close-btn" id="modalClose" aria-label="Cerrar">✕</button>
         </div>
       </div>
 
-      <div class="modal-body">
+      <div class="modal-body" id="modalBody">
         <div>
           <img id="modalImage" class="modal-image" src="/mnt/data/A_promotional_digital_graphic_design_advertisement.png" alt="Ilustración servicio" loading="lazy">
-          <div class="thumbs" id="modalThumbs"></div>
+          <div class="thumbs" id="modalThumbs" aria-hidden="true"></div>
         </div>
 
         <div>
@@ -215,10 +250,10 @@
           <h4 style="margin-top:8px">Pasos del servicio</h4>
           <ol id="modalSteps" class="detail-list"></ol>
 
-          <div class="modal-actions">
-            <a id="modalCall" class="btn" href="#">Llamar</a>
-            <a id="modalWhats" class="btn btn-primary" href="#">WhatsApp</a>
-            <button id="modalPrint" class="btn">Imprimir</button>
+          <div class="modal-actions" id="modalActions">
+            <a id="modalCall" class="btn" href="#" aria-label="Llamar">Llamar</a>
+            <a id="modalWhats" class="btn btn-primary" href="#" aria-label="WhatsApp">WhatsApp</a>
+            <button id="modalPrint" class="btn" aria-label="Imprimir">Imprimir</button>
           </div>
         </div>
       </div>
@@ -226,10 +261,9 @@
   </div>
 
 <script>
-/* ====== Datos centralizados con imágenes ilustrativas ======
-   Puedes cambiar las rutas de imagen por otras locales o remotas.
-   He incluido la imagen que subiste: /mnt/data/A_promotional_digital_graphic_design_advertisement.png
-*/
+/* ===========================
+   Datos (centralizados)
+   =========================== */
 const SERVICES = [
   {
     id: 'mantenimiento',
@@ -239,9 +273,9 @@ const SERVICES = [
     filter: 'mantenimiento',
     images: [
       '/mnt/data/A_promotional_digital_graphic_design_advertisement.png',
-      'https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=1200&q=60' // fallback illustrative
+      'https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=1200&q=60'
     ],
-    description: `Inspección completa del equipo: limpieza de polvo, verificación de ventilación y flujo de aire, revisión de ventiladores y disipadores, pruebas de hardware (memoria, disco, temperaturas) y ajustes para mejorar estabilidad y vida útil. Recomendamos aplicar pasta térmica cuando la temperatura lo requiera.`,
+    description: `Inspección completa: limpieza de polvo, verificación de ventilación, revisión de ventiladores y disipadores, pruebas de hardware (memoria, disco, temperaturas) y ajustes para mejorar estabilidad.`,
     includes: [
       'Limpieza interna (ventiladores, disipador)',
       'Verificación y prueba de unidades y sensores',
@@ -250,13 +284,12 @@ const SERVICES = [
       'Informe técnico y recomendaciones'
     ],
     steps: [
-      'Agendar cita o acceder vía remoto (según modalidad)',
-      'Diagnóstico inicial (30–60 min) con reporte',
-      'Presupuesto y aprobación del cliente',
-      'Ejecución del mantenimiento y pruebas finales'
+      'Agendar cita o acceso remoto',
+      'Diagnóstico inicial (30–60 min)',
+      'Presupuesto y aprobación',
+      'Ejecución y pruebas finales'
     ]
   },
-
   {
     id: 'software',
     title: 'Instalación de software (estudiantil)',
@@ -267,21 +300,20 @@ const SERVICES = [
       'https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?w=1200&q=60',
       '/mnt/data/A_promotional_digital_graphic_design_advertisement.png'
     ],
-    description: `Instalación y configuración de software académico y herramientas de productividad. Incluye instalación de drivers, runtimes (Java/.NET), ajustes de rendimiento para software de CAD/Modelado 3D y recomendaciones para optimizar proyectos y flujos de trabajo estudiantiles.`,
+    description: `Instalación y configuración de software académico y herramientas de productividad. Incluye instalación de drivers, runtimes y ajustes de rendimiento.`,
     includes: [
       'Instalación completa del software requerido',
-      'Activación y configuración de preferencias',
-      'Instalación de drivers y runtimes necesarios',
+      'Configuración de preferencias',
+      'Instalación de drivers y runtimes',
       'Prueba de apertura y guardado de archivos'
     ],
     steps: [
-      'Confirmación de licencias o acuerdos de uso',
-      'Instalación y configuración personalizada',
+      'Confirmación de licencias',
+      'Instalación personalizada',
       'Validación con archivos de prueba',
-      'Entregar recomendaciones y ajuste final'
+      'Entrega y recomendaciones'
     ]
   },
-
   {
     id: 'optimizacion',
     title: 'Optimización del equipo',
@@ -291,21 +323,20 @@ const SERVICES = [
     images: [
       'https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=1200&q=60'
     ],
-    description: `Aceleración del equipo mediante limpieza de archivos temporales, ajustes en inicio, manejo de servicios y configuración de memoria virtual. Para equipos con HDD se complementa con recomendaciones de migración a SSD para mejora notable.`,
+    description: `Limpieza de temporales, optimización de inicio, ajuste de servicios y configuraciones para mejorar velocidad y estabilidad.`,
     includes: [
-      'Eliminación de archivos temporales y basura',
-      'Optimización de programas en inicio',
-      'Configuraciones de rendimiento y servicios',
-      'Opcional: pruebas de benchmark'
+      'Eliminar temporales y basura',
+      'Optimizar programas de inicio',
+      'Configuraciones de rendimiento',
+      'Pruebas de benchmark opcional'
     ],
     steps: [
-      'Diagnóstico de rendimiento',
+      'Diagnóstico',
       'Limpieza y ajustes',
-      'Pruebas de funcionamiento',
+      'Pruebas',
       'Entrega de recomendaciones'
     ]
   },
-
   {
     id: 'recuperacion',
     title: 'Recuperación de archivos borrados',
@@ -315,65 +346,80 @@ const SERVICES = [
     images: [
       'https://images.unsplash.com/photo-1587825140708-3c92c6c99c43?w=1200&q=60'
     ],
-    description: `Recuperación de datos con herramientas profesionales. El éxito depende del estado físico del medio y el tiempo transcurrido desde la eliminación. Se realiza evaluación previa sin costo (archivo de prueba) para estimar posibilidades.`,
+    description: `Recuperación con herramientas profesionales. El éxito depende del estado físico del dispositivo y el tiempo transcurrido desde la eliminación.`,
     includes: [
-      'Evaluación inicial sin costo (archivo de prueba)',
-      'Proceso de recuperación con herramientas forenses',
+      'Evaluación inicial sin costo',
+      'Recuperación con herramientas forenses',
       'Entrega de archivos recuperados',
-      'Recomendaciones de backup y prevención'
+      'Recomendaciones de backup'
     ],
     steps: [
-      'Evaluación del dispositivo',
-      'Proceso de recuperación (variable en tiempo)',
-      'Entrega de resultados en unidad externa o descarga segura',
-      'Recomendaciones para evitar futuras pérdidas'
+      'Evaluación',
+      'Recuperación',
+      'Extracción',
+      'Entrega'
     ]
   },
-
   {
     id: 'hdd2ssd',
-    title: 'Cambio de HDD a SSD',
-    subtitle: 'Migración de disco y mejora de velocidad',
+    title: 'Cambio HDD → SSD',
+    subtitle: 'Migración segura y mejora de velocidad',
     price: 300,
     filter: 'mantenimiento',
     images: [
       'https://images.unsplash.com/photo-1587825125547-4a4a7a1d3b3e?w=1200&q=60'
     ],
-    description: `Migración segura de sistema y datos desde HDD a SSD mediante clonación o instalación limpia. Se realizan ajustes para habilitar TRIM y aprovechar la nueva unidad al máximo; incluye pruebas y verificación final.`,
+    description: `Migración de datos y sistema a SSD por clonación o instalación limpia. Configuración TRIM y optimización final.`,
     includes: [
-      'Clonación de disco o instalación limpia',
+      'Clonación o instalación limpia',
       'Instalación física del SSD',
-      'Configuración TRIM y optimización',
-      'Pruebas de rendimiento y verificación'
+      'Configuración TRIM',
+      'Pruebas y verificación'
     ],
     steps: [
-      'Copia/clonación de datos',
-      'Instalación física del SSD',
-      'Configuración y pruebas',
-      'Entrega y recomendaciones'
+      'Copia/clonación',
+      'Instalación',
+      'Configuración',
+      'Entrega'
     ]
   }
 ];
 
-/* ===== Helpers ===== */
+/* ===========================
+   Utilidades (normalize, debounce, safe image)
+   =========================== */
 const $ = s => document.querySelector(s);
 const $$ = s => Array.from(document.querySelectorAll(s));
 
-function formatPrice(n){ return `$${n}` }
+function normalizeText(text){
+  return (text||'').toString().toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"");
+}
 
-/* ===== Render tarjetas dinámicas con SVGs (distinción tecnológica) ===== */
+function debounce(fn, wait=250){
+  let t;
+  return (...args)=>{ clearTimeout(t); t = setTimeout(()=>fn(...args), wait); };
+}
+
+function safeImage(el, fallback){
+  el.addEventListener('error', ()=>{ if(el.src !== fallback) el.src = fallback; });
+}
+
+/* ===========================
+   Renderizado de tarjetas
+   =========================== */
 const servicesList = $('#servicesList');
 
+function formatPrice(n){ return `$${n}`; }
+
 function svgFor(id){
-  // small, clear SVG per service for quick recognition
   const icons = {
-    mantenimiento: `<svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M21 3l-6.6 6.6" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 7l3 3" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M3 21l7-7" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
-    software: `<svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="4" width="18" height="14" rx="2" stroke="white" stroke-width="1.6"/><path d="M8 8h8" stroke="white" stroke-width="1.6" stroke-linecap="round"/></svg>`,
-    optimizacion: `<svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M12 2v4" stroke="white" stroke-width="1.6" stroke-linecap="round"/><path d="M12 18v4" stroke="white" stroke-width="1.6" stroke-linecap="round"/><circle cx="12" cy="12" r="6" stroke="white" stroke-width="1.6"/></svg>`,
-    recuperacion: `<svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M21 12a9 9 0 11-3.2-6.6" stroke="white" stroke-width="1.6" stroke-linecap="round"/><path d="M21 3v6h-6" stroke="white" stroke-width="1.6" stroke-linecap="round"/></svg>`,
-    hdd2ssd: `<svg width="28" height="28" viewBox="0 0 24 24" fill="none"><rect x="3" y="6" width="18" height="12" rx="2" stroke="white" stroke-width="1.6"/><path d="M7 12h10" stroke="white" stroke-width="1.6" stroke-linecap="round"/></svg>`
+    mantenimiento: `<svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M21 3l-6.6 6.6" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 7l3 3" stroke="white" stroke-width="1.6"/><path d="M3 21l7-7" stroke="white" stroke-width="1.6"/></svg>`,
+    software: `<svg width="28" height="28" viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="14" rx="2" stroke="white" stroke-width="1.6"/><path d="M8 8h8" stroke="white" stroke-width="1.6"/></svg>`,
+    optimizacion: `<svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M12 2v4" stroke="white" stroke-width="1.6"/><path d="M12 18v4" stroke="white" stroke-width="1.6"/><circle cx="12" cy="12" r="6" stroke="white" stroke-width="1.6"/></svg>`,
+    recuperacion: `<svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M21 12a9 9 0 11-3.2-6.6" stroke="white" stroke-width="1.6"/><path d="M21 3v6h-6" stroke="white" stroke-width="1.6"/></svg>`,
+    hdd2ssd: `<svg width="28" height="28" viewBox="0 0 24 24" fill="none"><rect x="3" y="6" width="18" height="12" rx="2" stroke="white" stroke-width="1.6"/><path d="M7 12h10" stroke="white" stroke-width="1.6"/></svg>`
   };
-  return icons[id] || `<svg width="28" height="28" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="white" stroke-width="1.6"/></svg>`;
+  return icons[id] || `<svg width="28" height="28"><circle cx="12" cy="12" r="9" fill="white"/></svg>`;
 }
 
 function createServiceCard(s){
@@ -381,6 +427,7 @@ function createServiceCard(s){
   btn.className = 'card-service';
   btn.type = 'button';
   btn.dataset.id = s.id;
+  btn.setAttribute('aria-label', `${s.title} — ${s.subtitle}`);
   btn.innerHTML = `
     <div class="svc-icon" aria-hidden>${svgFor(s.id)}</div>
     <div class="svc-body">
@@ -389,37 +436,27 @@ function createServiceCard(s){
     </div>
     <div class="svc-price">${formatPrice(s.price)}</div>
   `;
+  btn.tabIndex = 0;
   return btn;
 }
 
 function renderServices(filter='all', query=''){
   servicesList.innerHTML = '';
-  const q = (query||'').trim().toLowerCase();
-  const items = SERVICES.filter(s => (filter==='all' ? true : s.filter===filter) && (s.title.toLowerCase().includes(q) || s.subtitle.toLowerCase().includes(q)));
+  const q = normalizeText(query);
+  const items = SERVICES.filter(s => (filter==='all' ? true : s.filter===filter) &&
+    (normalizeText(s.title).includes(q) || normalizeText(s.subtitle).includes(q)));
   if(!items.length){
     servicesList.innerHTML = '<div style="padding:18px;color:var(--muted)">No se encontraron servicios.</div>';
     return;
   }
-  items.forEach(s => servicesList.appendChild(createServiceCard(s)));
+  const frag = document.createDocumentFragment();
+  items.forEach(s => frag.appendChild(createServiceCard(s)));
+  servicesList.appendChild(frag);
 }
 
-/* ===== init ===== */
-renderServices('all');
-
-/* ===== filters & search ===== */
-$$('.chip').forEach(btn => btn.addEventListener('click', ()=>{
-  $$('.chip').forEach(c => c.setAttribute('aria-pressed','false'));
-  btn.setAttribute('aria-pressed','true');
-  renderServices(btn.dataset.filter, $('#search').value);
-}));
-$('#search').addEventListener('input', (e)=>{
-  const active = $$('.chip').find(c => c.getAttribute('aria-pressed')==='true');
-  const filter = active ? active.dataset.filter : 'all';
-  renderServices(filter, e.target.value);
-});
-$('#clearSearch').addEventListener('click', ()=>{ $('#search').value=''; renderServices('all'); });
-
-/* ===== modal logic w/ focus trap & thumbnails ===== */
+/* ===========================
+   Modal (responsive + focus trap + body lock)
+   =========================== */
 const modalBackdrop = $('#modalBackdrop');
 const modalClose = $('#modalClose');
 const modalTitle = $('#modalTitle');
@@ -434,6 +471,7 @@ const modalWhats = $('#modalWhats');
 const modalPrint = $('#modalPrint');
 
 let lastFocus = null;
+let removeTrap = ()=>{};
 
 function trapFocus(container){
   const focusable = Array.from(container.querySelectorAll('a[href],button:not([disabled]),textarea,input,select,[tabindex]:not([tabindex="-1"])'));
@@ -449,7 +487,6 @@ function trapFocus(container){
   container.addEventListener('keydown', handler);
   return ()=>container.removeEventListener('keydown', handler);
 }
-let untrap = ()=>{};
 
 function showThumbs(images){
   modalThumbs.innerHTML = '';
@@ -457,12 +494,15 @@ function showThumbs(images){
     const img = document.createElement('img');
     img.src = src;
     img.loading = 'lazy';
+    img.alt = `Vista ${i+1}`;
     if(i===0) img.classList.add('active');
     img.addEventListener('click', ()=> {
       modalImage.src = src;
       modalThumbs.querySelectorAll('img').forEach(t => t.classList.remove('active'));
       img.classList.add('active');
     });
+    // fallback safety
+    img.onerror = () => { img.src = '/mnt/data/A_promotional_digital_graphic_design_advertisement.png'; };
     modalThumbs.appendChild(img);
   });
 }
@@ -470,7 +510,7 @@ function showThumbs(images){
 function openModal(s){
   lastFocus = document.activeElement;
   modalTitle.textContent = s.title;
-  modalSubtitle.textContent = s.subtitle + ' • ' + formatPrice(s.price);
+  modalSubtitle.textContent = `${s.subtitle} • ${formatPrice(s.price)}`;
   modalImage.src = s.images && s.images.length ? s.images[0] : '/mnt/data/A_promotional_digital_graphic_design_advertisement.png';
   modalImage.alt = s.title;
   modalDescription.textContent = s.description;
@@ -481,22 +521,45 @@ function openModal(s){
   modalCall.href = `tel:+523223533329`;
   modalWhats.href = `https://wa.me/523223533329?text=${encodeURIComponent('Hola, tengo interés en: '+s.title)}`;
 
+  // show modal and lock body scroll (works on mobile)
   modalBackdrop.style.display = 'flex';
   modalBackdrop.setAttribute('aria-hidden','false');
-  untrap = trapFocus(modalBackdrop);
+  document.body.classList.add('modal-open');
+  removeTrap = trapFocus(modalBackdrop);
   setTimeout(()=> modalClose.focus(), 120);
+
   // preload images
-  (s.images||[]).forEach(src => { const I = new Image(); I.src = src; });
+  (s.images||[]).forEach(src => { const I = new Image(); I.src = src; I.onerror = ()=>{}; });
 }
 
 function closeModal(){
   modalBackdrop.style.display = 'none';
   modalBackdrop.setAttribute('aria-hidden','true');
-  untrap();
+  document.body.classList.remove('modal-open');
+  removeTrap();
   if(lastFocus) lastFocus.focus();
 }
 
-/* Delegation: open modal when clicking a service card */
+/* ===========================
+   Eventos & inicialización
+   =========================== */
+renderServices('all');
+
+$$('.chip').forEach(btn => btn.addEventListener('click', ()=>{
+  $$('.chip').forEach(c => c.setAttribute('aria-pressed','false'));
+  btn.setAttribute('aria-pressed','true');
+  renderServices(btn.dataset.filter, $('#search').value);
+}));
+
+$('#search').addEventListener('input', debounce((e)=>{
+  const active = $$('.chip').find(c => c.getAttribute('aria-pressed')==='true');
+  const filter = active ? active.dataset.filter : 'all';
+  renderServices(filter, e.target.value);
+}, 180));
+
+$('#clearSearch').addEventListener('click', ()=>{ $('#search').value=''; renderServices('all'); });
+
+// open modal by delegation
 servicesList.addEventListener('click', (ev)=>{
   const card = ev.target.closest('.card-service');
   if(!card) return;
@@ -505,7 +568,7 @@ servicesList.addEventListener('click', (ev)=>{
   if(svc) openModal(svc);
 });
 
-/* Keyboard Enter to open when focused */
+// keyboard support
 servicesList.addEventListener('keydown', (e) => {
   if(e.key === 'Enter'){
     const card = e.target.closest('.card-service');
@@ -517,13 +580,13 @@ servicesList.addEventListener('keydown', (e) => {
   }
 });
 
-/* modal events */
+// modal controls
 modalClose.addEventListener('click', closeModal);
 modalBackdrop.addEventListener('click', (e)=>{ if(e.target === modalBackdrop) closeModal(); });
 document.addEventListener('keydown', (e)=>{ if(e.key === 'Escape') closeModal(); });
-modalPrint.addEventListener('click', ()=> window.print());
+$('#modalPrint')?.addEventListener('click', ()=> window.print());
 
-/* quick actions */
+// quick hero tags open & openServices
 $('#openServices').addEventListener('click', ()=>{ document.getElementById('servicesList').scrollIntoView({behavior:'smooth'}); });
 $$('.tag').forEach(t => t.addEventListener('click', (e)=> {
   const id = t.dataset.id;
@@ -531,13 +594,18 @@ $$('.tag').forEach(t => t.addEventListener('click', (e)=> {
   const chip = $$('.chip').find(c => c.dataset.filter === (id==='hdd2ssd' ? 'mantenimiento' : id ));
   if(chip) chip.setAttribute('aria-pressed','true');
   renderServices(chip ? chip.dataset.filter : 'all', $('#search').value);
-  // open first matching
   const first = SERVICES.find(s => s.id === id);
   if(first) openModal(first);
 }));
 
-/* expose API */
-window.RJVS = { addService: s => { SERVICES.push(s); renderServices('all'); } };
+// image fallback for main modal image
+safeImage(modalImage, '/mnt/data/A_promotional_digital_graphic_design_advertisement.png');
+
+/* Small API (console) */
+window.RJVS = {
+  addService: s => { SERVICES.push(s); renderServices('all'); },
+  openService: id => { const s = SERVICES.find(x=>x.id===id); if(s) openModal(s); }
+};
 
 </script>
 </body>
