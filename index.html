@@ -1,160 +1,544 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>RJVS Tech Solutions</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background: #f2f5f9;
-      color: #1a1a1a;
-    }
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+<title>RJVS Tech — Soporte Técnico Profesional</title>
+<meta name="description" content="Servicios técnicos profesionales: mantenimiento, optimización, recuperación de datos y soporte remoto. Puerto Vallarta. 322 353 3329">
+<style>
+  :root{
+    --bg:#f4f7fb; --card:#ffffff; --muted:#51607a;
+    --accent:#006db3; --accent-2:#00a3ff; --success:#25D366;
+    --radius:14px; --shadow:0 14px 40px rgba(8,30,58,0.08);
+    --max:1200px; --glass: rgba(255,255,255,0.6);
+    font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{ --bg:#071227; --card:#081426; --muted:#9fb3c9; --accent:#2fa7ff; --accent-2:#1b6fb2; color-scheme:dark; }
+  }
 
-    .header {
-      background: linear-gradient(135deg, #003b73, #007bff);
-      padding: 40px 20px;
-      text-align: center;
-      color: white;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.2);
-    }
+  *{box-sizing:border-box}
+  html,body{height:100%;margin:0;background:linear-gradient(180deg,var(--bg),#eaf4ff);-webkit-font-smoothing:antialiased}
+  a{color:inherit}
 
-    .header h1 {
-      margin: 0;
-      font-size: 2.5rem;
-      font-weight: 800;
-    }
+  /* layout */
+  .site{max-width:var(--max);margin:28px auto;padding:18px}
+  header{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:12px;border-radius:12px;background:linear-gradient(90deg,transparent,var(--glass));backdrop-filter:blur(6px);border:1px solid rgba(2,6,23,0.04)}
+  .brand{display:flex;gap:12px;align-items:center}
+  .logo{width:56px;height:56px;border-radius:12px;background:linear-gradient(135deg,var(--accent),var(--accent-2));display:grid;place-items:center;color:white;font-weight:800}
+  header h1{margin:0;font-size:1.15rem;color:var(--accent)}
+  header p{margin:0;font-size:0.85rem;color:var(--muted)}
 
-    .header p {
-      margin-top: 8px;
-      font-size: 1.1rem;
-      opacity: 0.9;
-    }
+  nav{display:flex;gap:10px;align-items:center}
+  .btn{padding:8px 12px;border-radius:10px;background:transparent;border:1px solid rgba(2,6,23,0.06);font-weight:700;cursor:pointer}
+  .btn-primary{background:linear-gradient(90deg,var(--accent),var(--accent-2));color:white;border:none;box-shadow:0 10px 30px rgba(0,113,200,0.12)}
 
-    .container {
-      max-width: 1100px;
-      margin: 40px auto;
-      background: white;
-      border-radius: 18px;
-      padding: 40px;
-      box-shadow: 0 8px 25px rgba(0,0,0,0.08);
-      display: grid;
-      grid-template-columns: 1fr 350px;
-      gap: 40px;
-    }
+  /* hero */
+  .hero{display:grid;grid-template-columns:1fr 360px;gap:22px;margin-top:18px}
+  @media (max-width:980px){.hero{grid-template-columns:1fr}}
+  .hero-card{background:var(--card);padding:20px;border-radius:14px;box-shadow:var(--shadow)}
+  .hero-card h2{margin:0;color:var(--accent);font-size:1.6rem}
+  .hero-card p{color:var(--muted);margin-top:8px}
+  .tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+  .tag{padding:8px 12px;border-radius:999px;background:rgba(0,0,0,0.04);font-weight:700;cursor:pointer}
 
-    h2 {
-      font-size: 1.8rem;
-      font-weight: 700;
-      margin-bottom: 20px;
-    }
+  .contact-card{background:linear-gradient(180deg,var(--accent),var(--accent-2));color:white;padding:18px;border-radius:12px;display:flex;flex-direction:column;gap:10px}
+  .contact-card .big{font-weight:900;font-size:1.2rem}
 
-    .service-list p {
-      display: flex;
-      justify-content: space-between;
-      font-size: 1.1rem;
-      padding: 10px 0;
-      border-bottom: 1px solid #e6e6e6;
-    }
+  /* services grid */
+  .panel{display:grid;grid-template-columns:1fr 360px;gap:28px;margin-top:20px}
+  @media (max-width:980px){.panel{grid-template-columns:1fr}}
+  .services-wrap{background:var(--card);padding:20px;border-radius:12px;box-shadow:var(--shadow)}
+  .search-row{display:flex;gap:8px;align-items:center}
+  .search{flex:1;padding:10px 12px;border-radius:10px;border:1px solid #e6eef8}
+  .filters{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+  .chip{padding:7px 10px;border-radius:999px;background:transparent;border:1px solid rgba(11,115,183,0.08);color:var(--accent);font-weight:700;cursor:pointer}
+  .chip[aria-pressed="true"]{background:linear-gradient(90deg,var(--accent),var(--accent-2));color:white;box-shadow:0 10px 24px rgba(11,115,183,0.12)}
 
-    .price {
-      font-weight: 700;
-      color: #007bff;
-    }
+  .services-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:16px}
+  @media (max-width:780px){.services-grid{grid-template-columns:1fr}}
+  .card-service{display:flex;gap:12px;align-items:flex-start;padding:12px;border-radius:12px;border:1px solid #e9f3fb;background:linear-gradient(180deg,rgba(255,255,255,0.8),transparent);cursor:pointer;transition:transform .14s,box-shadow .14s}
+  .card-service:hover{transform:translateY(-6px);box-shadow:0 18px 40px rgba(11,95,150,0.06)}
+  .svc-icon{width:56px;height:56px;border-radius:10px;background:linear-gradient(135deg,var(--accent),var(--accent-2));display:flex;align-items:center;justify-content:center;color:white;font-weight:800;flex:0 0 56px}
+  .svc-body{flex:1}
+  .svc-title{font-weight:800}
+  .svc-sub{font-size:0.9rem;color:var(--muted);margin-top:6px}
+  .svc-price{font-weight:900;color:var(--accent);align-self:flex-start}
 
-    .side-box {
-      background: #003b73;
-      color: white;
-      padding: 30px;
-      border-radius: 16px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      box-shadow: 0 6px 20px rgba(0,0,0,0.2);
-    }
+  /* modal */
+  .modal-backdrop{position:fixed;inset:0;background:rgba(2,6,23,0.6);display:none;align-items:center;justify-content:center;padding:16px;z-index:60}
+  .modal{background:var(--card);width:100%;max-width:960px;border-radius:12px;padding:18px;box-shadow:0 20px 60px rgba(2,6,23,0.6);transform:translateY(8px)}
+  .modal-header{display:flex;align-items:center;justify-content:space-between;gap:12px}
+  .modal-body{display:grid;grid-template-columns:320px 1fr;gap:16px;margin-top:12px}
+  @media (max-width:880px){.modal-body{grid-template-columns:1fr}}
+  .modal-image{width:100%;height:220px;object-fit:cover;border-radius:10px;background:#f3f7fb}
+  .thumbs{display:flex;gap:8px;margin-top:8px}
+  .thumbs img{width:64px;height:48px;object-fit:cover;border-radius:8px;cursor:pointer;border:2px solid transparent}
+  .thumbs img.active{border-color:var(--accent)}
+  .detail-list{margin:10px 0;padding-left:18px}
+  .detail-list li{margin:8px 0}
+  .modal-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
+  .close-btn{background:transparent;border:0;font-size:22px;padding:6px;cursor:pointer}
 
-    .side-box h3 {
-      margin-top: 0;
-      font-size: 1.5rem;
-      font-weight: 800;
-    }
+  /* accessibility focus */
+  :focus{outline:3px solid rgba(0,119,200,0.18);outline-offset:2px}
 
-    .contact-number {
-      font-size: 1.6rem;
-      font-weight: bold;
-      margin: 10px 0;
-    }
+  /* small */
+  .muted{color:var(--muted)}
+  .kicker{font-size:0.85rem;color:var(--muted);font-weight:700}
 
-    .side-box ul {
-      padding-left: 20px;
-      margin-top: 10px;
-    }
-
-    .btn-whatsapp {
-      margin-top: 25px;
-      padding: 15px;
-      background: #25D366;
-      color: white;
-      font-weight: bold;
-      text-align: center;
-      border-radius: 10px;
-      text-decoration: none;
-      display: block;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-      transition: 0.2s;
-    }
-
-    .btn-whatsapp:hover {
-      background: #1ebe5c;
-    }
-
-  </style>
+</style>
 </head>
 <body>
-
-  <header class="header">
-    <h1>RJVS Tech Solutions</h1>
-    <p>Soporte técnico • Optimización • Recuperación de datos • Servicio profesional</p>
-  </header>
-
-  <div class="container">
-
-    <div>
-      <h2>Servicios Técnicos</h2>
-      <div class="service-list">
-        <p>Mantenimiento preventivo y correctivo <span class="price">$300</span></p>
-        <p>Instalación de software estudiantil <span class="price">$200</span></p>
-        <p>Optimización del equipo <span class="price">$250</span></p>
-        <p>Recuperación de archivos borrados <span class="price">$250</span></p>
-        <p>Restauración de fábrica <span class="price">$200</span></p>
-        <p>Restablecimiento de contraseña <span class="price">$200</span></p>
-        <p>Eliminación de virus <span class="price">$200</span></p>
-        <p>Reinstalación de sistema operativo <span class="price">$250</span></p>
-        <p>Cambio de HDD a SSD <span class="price">$300</span></p>
-      </div>
-    </div>
-
-    <div class="side-box">
-      <div>
-        <h3>Contacto</h3>
-        <div class="contact-number">📞 322 353 3329</div>
-        <p>Zona: Puerto Vallarta</p>
-        <p>Modalidad: Domicilio o remota</p>
-
-        <h3>Incluye</h3>
-        <ul>
-          <li>Asesoría para instalación de software</li>
-          <li>Diagnóstico profesional</li>
-          <li>Presupuesto sin compromiso</li>
-          <li>Recuperación de datos y backups</li>
-        </ul>
+  <div class="site">
+    <header>
+      <div class="brand">
+        <div class="logo" aria-hidden>RT</div>
+        <div>
+          <h1>RJVS Tech Solutions</h1>
+          <p>Soporte profesional para PC, laptops, tablets — Puerto Vallarta</p>
+        </div>
       </div>
 
-      <a class="btn-whatsapp" href="https://wa.me/523223533329" target="_blank">Contactar por WhatsApp</a>
-    </div>
+      <nav>
+        <button class="btn" id="openServices">Servicios</button>
+        <a class="btn btn-primary" href="https://wa.me/523223533329" target="_blank" rel="noopener">Contactar</a>
+      </nav>
+    </header>
 
+    <!-- HERO -->
+    <section class="hero" aria-label="Introducción">
+      <div class="hero-card">
+        <h2>Soporte técnico que realmente te ayuda</h2>
+        <p>Servicios centrados en estudiantes, profesionales y usuarios domésticos: mantenimiento, optimización, migración a SSD, recuperación de datos y soporte remoto.</p>
+
+        <div class="tags" role="list">
+          <button class="tag" data-id="mantenimiento">Mantenimiento</button>
+          <button class="tag" data-id="software">Instalación</button>
+          <button class="tag" data-id="optimizacion">Optimización</button>
+          <button class="tag" data-id="recuperacion">Recuperación</button>
+          <button class="tag" data-id="hdd2ssd">HDD → SSD</button>
+        </div>
+      </div>
+
+      <aside class="contact-card" id="contact">
+        <div>
+          <div class="big">📞 322 353 3329</div>
+          <div class="muted">Puerto Vallarta — A domicilio o remoto</div>
+        </div>
+        <div>
+          <div class="kicker">Incluye</div>
+          <ul style="margin:8px 0 0 18px;color:white">
+            <li>Diagnóstico profesional</li>
+            <li>Asesoría para software académico</li>
+            <li>Recuperación de datos y backups</li>
+          </ul>
+          <a class="btn btn-primary" href="https://wa.me/523223533329" style="display:block;margin-top:12px;text-align:center">Contactar por WhatsApp</a>
+        </div>
+      </aside>
+    </section>
+
+    <!-- PANEL -->
+    <main class="panel" id="app" aria-live="polite">
+      <section class="services-wrap" aria-labelledby="servicesTitle">
+        <div class="search-row">
+          <input id="search" class="search" placeholder='Buscar servicio, ejemplo: "Instalación"' aria-label="Buscar servicios" />
+          <button class="btn" id="clearSearch">Limpiar</button>
+        </div>
+
+        <div class="filters" role="tablist" aria-label="Filtrar servicios">
+          <button class="chip" data-filter="all" aria-pressed="true">Todos</button>
+          <button class="chip" data-filter="mantenimiento">Mantenimiento</button>
+          <button class="chip" data-filter="soporte">Soporte</button>
+          <button class="chip" data-filter="recuperacion">Recuperación</button>
+        </div>
+
+        <div class="services-grid" id="servicesList" role="list" aria-labelledby="servicesTitle" style="margin-top:14px"></div>
+
+        <p class="muted" style="margin-top:12px">Precios orientativos. Diagnóstico final puede ajustar el costo. Contacto WhatsApp: <strong>322 353 3329</strong></p>
+      </section>
+
+      <aside class="side" aria-labelledby="contactTitle">
+        <div>
+          <div id="contactTitle" class="kicker">Contacto</div>
+          <div class="contact">📞 322 353 3329</div>
+          <small class="muted">WhatsApp disponible — Respuesta rápida</small>
+
+          <div style="margin-top:14px">
+            <div class="kicker">Modalidades</div>
+            <p class="muted">A domicilio (Zona Puerto Vallarta) • Remoto</p>
+          </div>
+
+          <div style="margin-top:14px">
+            <div class="kicker">Incluye</div>
+            <ul>
+              <li>Diagnóstico profesional</li>
+              <li>Asesoría para estudiantes</li>
+              <li>Recuperación de datos y copias</li>
+            </ul>
+          </div>
+        </div>
+
+        <div style="text-align:center">
+          <a class="btn btn-primary" id="waBtn" href="https://wa.me/523223533329" target="_blank" rel="noopener">Contactar por WhatsApp</a>
+          <div style="font-size:12px;margin-top:8px;opacity:0.95">O llámanos directamente desde tu teléfono</div>
+        </div>
+      </aside>
+    </main>
   </div>
 
+  <!-- MODAL -->
+  <div id="modalBackdrop" class="modal-backdrop" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="modal" role="document" aria-labelledby="modalTitle">
+      <div class="modal-header">
+        <div>
+          <div id="modalTitle" style="font-weight:800;font-size:1.15rem"></div>
+          <div class="muted" id="modalSubtitle"></div>
+        </div>
+        <div>
+          <button class="close-btn" id="modalClose" aria-label="Cerrar">✕</button>
+        </div>
+      </div>
+
+      <div class="modal-body">
+        <div>
+          <img id="modalImage" class="modal-image" src="/mnt/data/A_promotional_digital_graphic_design_advertisement.png" alt="Ilustración servicio" loading="lazy">
+          <div class="thumbs" id="modalThumbs"></div>
+        </div>
+
+        <div>
+          <p id="modalDescription" class="muted"></p>
+
+          <h4 style="margin-top:8px">¿Qué incluye?</h4>
+          <ul id="modalIncludes" class="detail-list"></ul>
+
+          <h4 style="margin-top:8px">Pasos del servicio</h4>
+          <ol id="modalSteps" class="detail-list"></ol>
+
+          <div class="modal-actions">
+            <a id="modalCall" class="btn" href="#">Llamar</a>
+            <a id="modalWhats" class="btn btn-primary" href="#">WhatsApp</a>
+            <button id="modalPrint" class="btn">Imprimir</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<script>
+/* ====== Datos centralizados con imágenes ilustrativas ======
+   Puedes cambiar las rutas de imagen por otras locales o remotas.
+   He incluido la imagen que subiste: /mnt/data/A_promotional_digital_graphic_design_advertisement.png
+*/
+const SERVICES = [
+  {
+    id: 'mantenimiento',
+    title: 'Mantenimiento preventivo y correctivo',
+    subtitle: 'Limpieza física, ventilación y pruebas',
+    price: 300,
+    filter: 'mantenimiento',
+    images: [
+      '/mnt/data/A_promotional_digital_graphic_design_advertisement.png',
+      'https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=1200&q=60' // fallback illustrative
+    ],
+    description: `Inspección completa del equipo: limpieza de polvo, verificación de ventilación y flujo de aire, revisión de ventiladores y disipadores, pruebas de hardware (memoria, disco, temperaturas) y ajustes para mejorar estabilidad y vida útil. Recomendamos aplicar pasta térmica cuando la temperatura lo requiera.`,
+    includes: [
+      'Limpieza interna (ventiladores, disipador)',
+      'Verificación y prueba de unidades y sensores',
+      'Aplicación de pasta térmica si es necesario',
+      'Chequeo de almacenamiento y memoria',
+      'Informe técnico y recomendaciones'
+    ],
+    steps: [
+      'Agendar cita o acceder vía remoto (según modalidad)',
+      'Diagnóstico inicial (30–60 min) con reporte',
+      'Presupuesto y aprobación del cliente',
+      'Ejecución del mantenimiento y pruebas finales'
+    ]
+  },
+
+  {
+    id: 'software',
+    title: 'Instalación de software (estudiantil)',
+    subtitle: 'AutoCAD, Revit, Adobe, Office',
+    price: 200,
+    filter: 'soporte',
+    images: [
+      'https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?w=1200&q=60',
+      '/mnt/data/A_promotional_digital_graphic_design_advertisement.png'
+    ],
+    description: `Instalación y configuración de software académico y herramientas de productividad. Incluye instalación de drivers, runtimes (Java/.NET), ajustes de rendimiento para software de CAD/Modelado 3D y recomendaciones para optimizar proyectos y flujos de trabajo estudiantiles.`,
+    includes: [
+      'Instalación completa del software requerido',
+      'Activación y configuración de preferencias',
+      'Instalación de drivers y runtimes necesarios',
+      'Prueba de apertura y guardado de archivos'
+    ],
+    steps: [
+      'Confirmación de licencias o acuerdos de uso',
+      'Instalación y configuración personalizada',
+      'Validación con archivos de prueba',
+      'Entregar recomendaciones y ajuste final'
+    ]
+  },
+
+  {
+    id: 'optimizacion',
+    title: 'Optimización del equipo',
+    subtitle: 'Limpieza lógica y ajustes de rendimiento',
+    price: 250,
+    filter: 'mantenimiento',
+    images: [
+      'https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=1200&q=60'
+    ],
+    description: `Aceleración del equipo mediante limpieza de archivos temporales, ajustes en inicio, manejo de servicios y configuración de memoria virtual. Para equipos con HDD se complementa con recomendaciones de migración a SSD para mejora notable.`,
+    includes: [
+      'Eliminación de archivos temporales y basura',
+      'Optimización de programas en inicio',
+      'Configuraciones de rendimiento y servicios',
+      'Opcional: pruebas de benchmark'
+    ],
+    steps: [
+      'Diagnóstico de rendimiento',
+      'Limpieza y ajustes',
+      'Pruebas de funcionamiento',
+      'Entrega de recomendaciones'
+    ]
+  },
+
+  {
+    id: 'recuperacion',
+    title: 'Recuperación de archivos borrados',
+    subtitle: 'Documentos, fotos y datos importantes',
+    price: 250,
+    filter: 'recuperacion',
+    images: [
+      'https://images.unsplash.com/photo-1587825140708-3c92c6c99c43?w=1200&q=60'
+    ],
+    description: `Recuperación de datos con herramientas profesionales. El éxito depende del estado físico del medio y el tiempo transcurrido desde la eliminación. Se realiza evaluación previa sin costo (archivo de prueba) para estimar posibilidades.`,
+    includes: [
+      'Evaluación inicial sin costo (archivo de prueba)',
+      'Proceso de recuperación con herramientas forenses',
+      'Entrega de archivos recuperados',
+      'Recomendaciones de backup y prevención'
+    ],
+    steps: [
+      'Evaluación del dispositivo',
+      'Proceso de recuperación (variable en tiempo)',
+      'Entrega de resultados en unidad externa o descarga segura',
+      'Recomendaciones para evitar futuras pérdidas'
+    ]
+  },
+
+  {
+    id: 'hdd2ssd',
+    title: 'Cambio de HDD a SSD',
+    subtitle: 'Migración de disco y mejora de velocidad',
+    price: 300,
+    filter: 'mantenimiento',
+    images: [
+      'https://images.unsplash.com/photo-1587825125547-4a4a7a1d3b3e?w=1200&q=60'
+    ],
+    description: `Migración segura de sistema y datos desde HDD a SSD mediante clonación o instalación limpia. Se realizan ajustes para habilitar TRIM y aprovechar la nueva unidad al máximo; incluye pruebas y verificación final.`,
+    includes: [
+      'Clonación de disco o instalación limpia',
+      'Instalación física del SSD',
+      'Configuración TRIM y optimización',
+      'Pruebas de rendimiento y verificación'
+    ],
+    steps: [
+      'Copia/clonación de datos',
+      'Instalación física del SSD',
+      'Configuración y pruebas',
+      'Entrega y recomendaciones'
+    ]
+  }
+];
+
+/* ===== Helpers ===== */
+const $ = s => document.querySelector(s);
+const $$ = s => Array.from(document.querySelectorAll(s));
+
+function formatPrice(n){ return `$${n}` }
+
+/* ===== Render tarjetas dinámicas con SVGs (distinción tecnológica) ===== */
+const servicesList = $('#servicesList');
+
+function svgFor(id){
+  // small, clear SVG per service for quick recognition
+  const icons = {
+    mantenimiento: `<svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M21 3l-6.6 6.6" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 7l3 3" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M3 21l7-7" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
+    software: `<svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="4" width="18" height="14" rx="2" stroke="white" stroke-width="1.6"/><path d="M8 8h8" stroke="white" stroke-width="1.6" stroke-linecap="round"/></svg>`,
+    optimizacion: `<svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M12 2v4" stroke="white" stroke-width="1.6" stroke-linecap="round"/><path d="M12 18v4" stroke="white" stroke-width="1.6" stroke-linecap="round"/><circle cx="12" cy="12" r="6" stroke="white" stroke-width="1.6"/></svg>`,
+    recuperacion: `<svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M21 12a9 9 0 11-3.2-6.6" stroke="white" stroke-width="1.6" stroke-linecap="round"/><path d="M21 3v6h-6" stroke="white" stroke-width="1.6" stroke-linecap="round"/></svg>`,
+    hdd2ssd: `<svg width="28" height="28" viewBox="0 0 24 24" fill="none"><rect x="3" y="6" width="18" height="12" rx="2" stroke="white" stroke-width="1.6"/><path d="M7 12h10" stroke="white" stroke-width="1.6" stroke-linecap="round"/></svg>`
+  };
+  return icons[id] || `<svg width="28" height="28" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="white" stroke-width="1.6"/></svg>`;
+}
+
+function createServiceCard(s){
+  const btn = document.createElement('button');
+  btn.className = 'card-service';
+  btn.type = 'button';
+  btn.dataset.id = s.id;
+  btn.innerHTML = `
+    <div class="svc-icon" aria-hidden>${svgFor(s.id)}</div>
+    <div class="svc-body">
+      <div class="svc-title">${s.title}</div>
+      <div class="svc-sub">${s.subtitle}</div>
+    </div>
+    <div class="svc-price">${formatPrice(s.price)}</div>
+  `;
+  return btn;
+}
+
+function renderServices(filter='all', query=''){
+  servicesList.innerHTML = '';
+  const q = (query||'').trim().toLowerCase();
+  const items = SERVICES.filter(s => (filter==='all' ? true : s.filter===filter) && (s.title.toLowerCase().includes(q) || s.subtitle.toLowerCase().includes(q)));
+  if(!items.length){
+    servicesList.innerHTML = '<div style="padding:18px;color:var(--muted)">No se encontraron servicios.</div>';
+    return;
+  }
+  items.forEach(s => servicesList.appendChild(createServiceCard(s)));
+}
+
+/* ===== init ===== */
+renderServices('all');
+
+/* ===== filters & search ===== */
+$$('.chip').forEach(btn => btn.addEventListener('click', ()=>{
+  $$('.chip').forEach(c => c.setAttribute('aria-pressed','false'));
+  btn.setAttribute('aria-pressed','true');
+  renderServices(btn.dataset.filter, $('#search').value);
+}));
+$('#search').addEventListener('input', (e)=>{
+  const active = $$('.chip').find(c => c.getAttribute('aria-pressed')==='true');
+  const filter = active ? active.dataset.filter : 'all';
+  renderServices(filter, e.target.value);
+});
+$('#clearSearch').addEventListener('click', ()=>{ $('#search').value=''; renderServices('all'); });
+
+/* ===== modal logic w/ focus trap & thumbnails ===== */
+const modalBackdrop = $('#modalBackdrop');
+const modalClose = $('#modalClose');
+const modalTitle = $('#modalTitle');
+const modalSubtitle = $('#modalSubtitle');
+const modalImage = $('#modalImage');
+const modalDescription = $('#modalDescription');
+const modalIncludes = $('#modalIncludes');
+const modalSteps = $('#modalSteps');
+const modalThumbs = $('#modalThumbs');
+const modalCall = $('#modalCall');
+const modalWhats = $('#modalWhats');
+const modalPrint = $('#modalPrint');
+
+let lastFocus = null;
+
+function trapFocus(container){
+  const focusable = Array.from(container.querySelectorAll('a[href],button:not([disabled]),textarea,input,select,[tabindex]:not([tabindex="-1"])'));
+  if(!focusable.length) return ()=>{};
+  const first = focusable[0], last = focusable[focusable.length-1];
+  function handler(e){
+    if(e.key === 'Tab'){
+      if(e.shiftKey && document.activeElement === first){ e.preventDefault(); last.focus(); }
+      else if(!e.shiftKey && document.activeElement === last){ e.preventDefault(); first.focus(); }
+    }
+    if(e.key === 'Escape'){ closeModal(); }
+  }
+  container.addEventListener('keydown', handler);
+  return ()=>container.removeEventListener('keydown', handler);
+}
+let untrap = ()=>{};
+
+function showThumbs(images){
+  modalThumbs.innerHTML = '';
+  images.forEach((src, i) => {
+    const img = document.createElement('img');
+    img.src = src;
+    img.loading = 'lazy';
+    if(i===0) img.classList.add('active');
+    img.addEventListener('click', ()=> {
+      modalImage.src = src;
+      modalThumbs.querySelectorAll('img').forEach(t => t.classList.remove('active'));
+      img.classList.add('active');
+    });
+    modalThumbs.appendChild(img);
+  });
+}
+
+function openModal(s){
+  lastFocus = document.activeElement;
+  modalTitle.textContent = s.title;
+  modalSubtitle.textContent = s.subtitle + ' • ' + formatPrice(s.price);
+  modalImage.src = s.images && s.images.length ? s.images[0] : '/mnt/data/A_promotional_digital_graphic_design_advertisement.png';
+  modalImage.alt = s.title;
+  modalDescription.textContent = s.description;
+  modalIncludes.innerHTML = s.includes.map(i => `<li>${i}</li>`).join('');
+  modalSteps.innerHTML = s.steps.map(st => `<li>${st}</li>`).join('');
+  showThumbs(s.images || ['/mnt/data/A_promotional_digital_graphic_design_advertisement.png']);
+
+  modalCall.href = `tel:+523223533329`;
+  modalWhats.href = `https://wa.me/523223533329?text=${encodeURIComponent('Hola, tengo interés en: '+s.title)}`;
+
+  modalBackdrop.style.display = 'flex';
+  modalBackdrop.setAttribute('aria-hidden','false');
+  untrap = trapFocus(modalBackdrop);
+  setTimeout(()=> modalClose.focus(), 120);
+  // preload images
+  (s.images||[]).forEach(src => { const I = new Image(); I.src = src; });
+}
+
+function closeModal(){
+  modalBackdrop.style.display = 'none';
+  modalBackdrop.setAttribute('aria-hidden','true');
+  untrap();
+  if(lastFocus) lastFocus.focus();
+}
+
+/* Delegation: open modal when clicking a service card */
+servicesList.addEventListener('click', (ev)=>{
+  const card = ev.target.closest('.card-service');
+  if(!card) return;
+  const id = card.dataset.id;
+  const svc = SERVICES.find(x => x.id === id);
+  if(svc) openModal(svc);
+});
+
+/* Keyboard Enter to open when focused */
+servicesList.addEventListener('keydown', (e) => {
+  if(e.key === 'Enter'){
+    const card = e.target.closest('.card-service');
+    if(card){
+      const id = card.dataset.id;
+      const svc = SERVICES.find(x => x.id === id);
+      if(svc) openModal(svc);
+    }
+  }
+});
+
+/* modal events */
+modalClose.addEventListener('click', closeModal);
+modalBackdrop.addEventListener('click', (e)=>{ if(e.target === modalBackdrop) closeModal(); });
+document.addEventListener('keydown', (e)=>{ if(e.key === 'Escape') closeModal(); });
+modalPrint.addEventListener('click', ()=> window.print());
+
+/* quick actions */
+$('#openServices').addEventListener('click', ()=>{ document.getElementById('servicesList').scrollIntoView({behavior:'smooth'}); });
+$$('.tag').forEach(t => t.addEventListener('click', (e)=> {
+  const id = t.dataset.id;
+  $$('.chip').forEach(c => c.setAttribute('aria-pressed','false'));
+  const chip = $$('.chip').find(c => c.dataset.filter === (id==='hdd2ssd' ? 'mantenimiento' : id ));
+  if(chip) chip.setAttribute('aria-pressed','true');
+  renderServices(chip ? chip.dataset.filter : 'all', $('#search').value);
+  // open first matching
+  const first = SERVICES.find(s => s.id === id);
+  if(first) openModal(first);
+}));
+
+/* expose API */
+window.RJVS = { addService: s => { SERVICES.push(s); renderServices('all'); } };
+
+</script>
 </body>
 </html>
