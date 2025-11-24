@@ -1,106 +1,160 @@
-<!-- Adapted robust version combining features -->
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>RJVS Tech Solutions — Profesional</title>
-<style>
-  body{margin:0;font-family:Inter,system-ui;background:#0f1724;color:#c9d3e0}
-  a{color:inherit;text-decoration:none}
-  :root{
-    --accent:#00a3ff; --accent2:#0077c8; --card:#0b1220; --glass:rgba(255,255,255,0.04);
-    --radius:14px;
-  }
-  header{display:flex;justify-content:space-between;align-items:center;padding:18px 26px;background:linear-gradient(90deg,transparent,var(--glass));backdrop-filter:blur(6px);position:sticky;top:0;z-index:10}
-  .logo{display:flex;align-items:center;gap:12px}
-  .logo-box{width:48px;height:48px;border-radius:12px;background:linear-gradient(135deg,var(--accent),var(--accent2));display:grid;place-items:center;font-weight:800;color:white}
-  nav a{padding:8px 12px;font-weight:600;border-radius:10px}
-  nav .cta{background:linear-gradient(90deg,var(--accent),var(--accent2));color:white;font-weight:800}
-  .hero{display:grid;grid-template-columns:1fr 380px;gap:30px;padding:40px;max-width:1200px;margin:auto}
-  @media(max-width:900px){.hero{grid-template-columns:1fr;padding:20px}}
-  .hero-card{background:var(--card);padding:26px;border-radius:20px}
-  .hero-card h1{margin:0;color:var(--accent);font-size:2rem}
-  .pill{display:inline-block;margin:6px 6px 0 0;padding:10px 14px;background:var(--glass);border-radius:12px;font-weight:700}
-  .side{background:var(--glass);border-radius:16px;padding:22px;color:white}
-  .side h3{margin-top:0;color:var(--accent)}
-  .service-grid{max-width:1200px;margin:30px auto;padding:20px;display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
-  .svc{background:var(--card);padding:18px;border-radius:16px;cursor:pointer;transition:.2s;border:1px solid var(--glass)}
-  .svc:hover{transform:translateY(-4px);border-color:var(--accent)}
-  .svc h4{margin:0;color:white}
-  .svc span{color:var(--accent);font-weight:800;float:right}
-  .modal-bg{position:fixed;inset:0;background:rgba(0,0,0,.6);display:none;align-items:center;justify-content:center;padding:20px;z-index:20}
-  .modal{background:var(--card);padding:26px;border-radius:18px;max-width:500px;width:100%}
-  .close{float:right;background:#d00;color:white;padding:6px 10px;border-radius:6px;cursor:pointer}
-  footer{text-align:center;padding:20px;color:#728199;font-size:14px;margin-top:40px}
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RJVS Tech Solutions</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: #f2f5f9;
+      color: #1a1a1a;
+    }
+
+    .header {
+      background: linear-gradient(135deg, #003b73, #007bff);
+      padding: 40px 20px;
+      text-align: center;
+      color: white;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+    }
+
+    .header h1 {
+      margin: 0;
+      font-size: 2.5rem;
+      font-weight: 800;
+    }
+
+    .header p {
+      margin-top: 8px;
+      font-size: 1.1rem;
+      opacity: 0.9;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 40px auto;
+      background: white;
+      border-radius: 18px;
+      padding: 40px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+      display: grid;
+      grid-template-columns: 1fr 350px;
+      gap: 40px;
+    }
+
+    h2 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+
+    .service-list p {
+      display: flex;
+      justify-content: space-between;
+      font-size: 1.1rem;
+      padding: 10px 0;
+      border-bottom: 1px solid #e6e6e6;
+    }
+
+    .price {
+      font-weight: 700;
+      color: #007bff;
+    }
+
+    .side-box {
+      background: #003b73;
+      color: white;
+      padding: 30px;
+      border-radius: 16px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+    }
+
+    .side-box h3 {
+      margin-top: 0;
+      font-size: 1.5rem;
+      font-weight: 800;
+    }
+
+    .contact-number {
+      font-size: 1.6rem;
+      font-weight: bold;
+      margin: 10px 0;
+    }
+
+    .side-box ul {
+      padding-left: 20px;
+      margin-top: 10px;
+    }
+
+    .btn-whatsapp {
+      margin-top: 25px;
+      padding: 15px;
+      background: #25D366;
+      color: white;
+      font-weight: bold;
+      text-align: center;
+      border-radius: 10px;
+      text-decoration: none;
+      display: block;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      transition: 0.2s;
+    }
+
+    .btn-whatsapp:hover {
+      background: #1ebe5c;
+    }
+
+  </style>
 </head>
 <body>
-<header>
-  <div class="logo">
-    <div class="logo-box">RJ</div>
-    <div><strong>RJVS Tech</strong><br><span style="font-size:12px">Soporte Técnico</span></div>
-  </div>
-  <nav>
-    <a href="#servicios">Servicios</a>
-    <a href="#contacto">Contacto</a>
-    <a class="cta" href="https://wa.me/523223533329">WhatsApp</a>
-  </nav>
-</header>
-<section class="hero">
-  <div class="hero-card">
-    <h1>Soporte técnico profesional a tu medida</h1>
-    <p>Optimización, mantenimiento, migración a SSD, instalación de software académico y recuperación de datos.</p>
+
+  <header class="header">
+    <h1>RJVS Tech Solutions</h1>
+    <p>Soporte técnico • Optimización • Recuperación de datos • Servicio profesional</p>
+  </header>
+
+  <div class="container">
+
     <div>
-      <span class="pill">Mantenimiento</span>
-      <span class="pill">Software</span>
-      <span class="pill">Optimización</span>
-      <span class="pill">Recuperación</span>
-      <span class="pill">HDD → SSD</span>
+      <h2>Servicios Técnicos</h2>
+      <div class="service-list">
+        <p>Mantenimiento preventivo y correctivo <span class="price">$300</span></p>
+        <p>Instalación de software estudiantil <span class="price">$200</span></p>
+        <p>Optimización del equipo <span class="price">$250</span></p>
+        <p>Recuperación de archivos borrados <span class="price">$250</span></p>
+        <p>Restauración de fábrica <span class="price">$200</span></p>
+        <p>Restablecimiento de contraseña <span class="price">$200</span></p>
+        <p>Eliminación de virus <span class="price">$200</span></p>
+        <p>Reinstalación de sistema operativo <span class="price">$250</span></p>
+        <p>Cambio de HDD a SSD <span class="price">$300</span></p>
+      </div>
     </div>
-  </div>
-  <div class="side" id="contacto">
-    <h3>Contacto</h3>
-    <p><strong>📞 322 353 3329</strong></p>
-    <p>Zona: Puerto Vallarta<br>Modalidad: domicilio o remota</p>
-    <a class="cta" href="https://wa.me/523223533329" style="display:block;text-align:center;margin-top:18px;padding:12px;border-radius:12px;background:linear-gradient(90deg,var(--accent),var(--accent2));color:white">Enviar WhatsApp</a>
-  </div>
-</section>
-<section id="servicios" class="service-grid">
-  <div class="svc" data-title="Mantenimiento" data-desc="Limpieza profunda, pasta térmica, diagnóstico y optimización avanzada." data-price="$300"><h4>Mantenimiento <span>$300</span></h4></div>
-  <div class="svc" data-title="Instalación de software" data-desc="Programas estudiantiles, oficina, arquitectura y diseño." data-price="$200"><h4>Software <span>$200</span></h4></div>
-  <div class="svc" data-title="Optimización del sistema" data-desc="Aceleración, desfragmentación, limpieza digital y mejoras de arranque." data-price="$250"><h4>Optimización <span>$250</span></h4></div>
-  <div class="svc" data-title="Recuperación de archivos" data-desc="Archivos borrados o dañados en HDD, SSD y USB." data-price="$250"><h4>Recuperación <span>$250</span></h4></div>
-  <div class="svc" data-title="Restauración de fábrica" data-desc="Sistema limpio, respaldo y reinstalación completa." data-price="$200"><h4>Fábrica <span>$200</span></h4></div>
-  <div class="svc" data-title="Cambio HDD a SSD" data-desc="Clonación, migración y mejora instantánea de velocidad." data-price="$300"><h4>HDD → SSD <span>$300</span></h4></div>
-</section>
-<div class="modal-bg" id="modal">
-  <div class="modal">
-    <span class="close" onclick="closeModal()">Cerrar</span>
-    <h2 id="m-title"></h2>
-    <p id="m-desc"></p>
-    <p style="font-weight:700;color:var(--accent)" id="m-price"></p>
-  </div>
-</div>
-<footer>RJVS Tech Solutions © 2025</footer>
-<script>
-  const modal=document.getElementById('modal');
-  const t=document.getElementById('m-title');
-  const d=document.getElementById('m-desc');
-  const p=document.getElementById('m-price');
 
-  document.querySelectorAll('.svc').forEach(s=>{
-    s.onclick=()=>{
-      t.textContent=s.dataset.title;
-      d.textContent=s.dataset.desc;
-      p.textContent="Precio: "+s.dataset.price;
-      modal.style.display='flex';
-    };
-  });
+    <div class="side-box">
+      <div>
+        <h3>Contacto</h3>
+        <div class="contact-number">📞 322 353 3329</div>
+        <p>Zona: Puerto Vallarta</p>
+        <p>Modalidad: Domicilio o remota</p>
 
-  function closeModal(){modal.style.display='none'}
+        <h3>Incluye</h3>
+        <ul>
+          <li>Asesoría para instalación de software</li>
+          <li>Diagnóstico profesional</li>
+          <li>Presupuesto sin compromiso</li>
+          <li>Recuperación de datos y backups</li>
+        </ul>
+      </div>
 
-  window.onclick=e=>{if(e.target===modal) closeModal()};
-</script>
+      <a class="btn-whatsapp" href="https://wa.me/523223533329" target="_blank">Contactar por WhatsApp</a>
+    </div>
+
+  </div>
+
 </body>
 </html>
