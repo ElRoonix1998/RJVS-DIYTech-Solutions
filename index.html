@@ -1,138 +1,314 @@
-<!-- 🌐 Página Profesional de Servicios Técnicos - RJVS DIYTech Solutions -->
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>RJVS DIYTech Solutions - Servicios Técnicos</title>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: "Inter", sans-serif;
-    }
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>RJVS Tech Solutions</title>
 
-    body {
-      background: #f5f6fa;
-      color: #333;
-      line-height: 1.6;
-      overflow-x: hidden;
-    }
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 
-    header {
-      background: linear-gradient(135deg, #1d3557, #457b9d);
-      color: #fff;
-      padding: 3rem 1rem;
-      text-align: center;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-    }
+<style>
+/* ---------- RESET ---------- */
+* {
+  margin: 0; padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+}
 
-    header h1 {
-      font-size: 2.8rem;
-      margin-bottom: 0.5rem;
-    }
+body {
+  background: linear-gradient(135deg, #e9efff 0%, #f5f8ff 40%, #ffffff 100%);
+  color: #1b1b1d;
+  overflow-x: hidden;
+}
 
-    header p {
-      font-size: 1.2rem;
-      opacity: 0.9;
-    }
+/* ---------- NAV ---------- */
+nav {
+  max-width: 1200px;
+  margin: 25px auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+}
 
-    .contenedor {
-      max-width: 1200px;
-      margin: 2.5rem auto;
-      padding: 0 1rem;
-    }
+.logo {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: #0a66ff;
+}
 
-    .servicios-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
-    }
+nav a {
+  margin-left: 30px;
+  font-size: 1rem;
+  color: #333;
+  font-weight: 500;
+}
 
-    .servicio {
-      background: #fff;
-      padding: 2rem;
-      border-radius: 14px;
-      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
-      transition: all 0.3s ease;
-      border-left: 6px solid #457b9d;
-    }
+.btn-nav {
+  background: #0a66ff;
+  padding: 10px 22px;
+  border-radius: 8px;
+  color: #fff;
+  font-weight: 600;
+}
 
-    .servicio:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
-    }
+/* ---------- HERO ---------- */
+.hero {
+  max-width: 1200px;
+  margin: 80px auto;
+  text-align: center;
+  padding: 0 20px;
+}
 
-    .servicio h3 {
-      font-size: 1.6rem;
-      margin-bottom: 0.8rem;
-      color: #1d3557;
-    }
+.hero h1 {
+  font-size: 3.8rem;
+  font-weight: 800;
+  color: #0a66ff;
+  line-height: 1.1;
+}
 
-    .servicio p {
-      font-size: 1rem;
-      margin-bottom: 0.8rem;
-    }
+.hero p {
+  margin-top: 20px;
+  font-size: 1.25rem;
+  color: #444;
+}
 
-    .footer {
-      text-align: center;
-      padding: 2rem 1rem;
-      margin-top: 3rem;
-      background: #1d3557;
-      color: #fff;
-    }
+.hero-buttons {
+  margin-top: 35px;
+}
 
-    .footer p { opacity: 0.8; }
-  </style>
+.hero-buttons a {
+  padding: 14px 32px;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 0 12px;
+  transition: 0.2s ease;
+}
+
+.btn-primary {
+  background: #0a66ff;
+  color: white;
+  box-shadow: 0 6px 20px rgba(10,102,255,0.3);
+}
+
+.btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(10,102,255,0.4);
+}
+
+.btn-secondary {
+  border: 2px solid #0a66ff;
+  color: #0a66ff;
+}
+
+.btn-secondary:hover {
+  background: #0a66ff;
+  color: white;
+}
+
+/* ---------- SECCIONES GENERALES ---------- */
+section {
+  max-width: 1200px;
+  margin: 70px auto;
+  padding: 0 20px;
+}
+
+/* ---------- SERVICIOS ---------- */
+#servicios h2 {
+  font-size: 2.6rem;
+  color: #0a66ff;
+  text-align: center;
+  margin-bottom: 50px;
+  font-weight: 800;
+}
+
+.servicios-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+  gap: 35px;
+}
+
+.card {
+  background: rgba(255,255,255,0.6);
+  backdrop-filter: blur(16px);
+  padding: 25px;
+  border-radius: 18px;
+  border: 1px solid rgba(200,200,200,0.4);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+  transition: 0.25s ease;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+}
+
+.card h3 {
+  font-size: 1.3rem;
+  color: #0a66ff;
+  margin-bottom: 10px;
+}
+
+.card p {
+  font-size: 1rem;
+  color: #444;
+  line-height: 1.5;
+}
+
+/* ---------- BENEFICIOS ---------- */
+#beneficios h2 {
+  font-size: 2.6rem;
+  text-align: center;
+  color: #0a66ff;
+  margin-bottom: 40px;
+  font-weight: 800;
+}
+
+.beneficios-box {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 25px;
+}
+
+.beneficio {
+  background: #0a66ff;
+  padding: 18px 25px;
+  border-radius: 14px;
+  color: white;
+  font-weight: 500;
+  min-width: 240px;
+  text-align: center;
+}
+
+/* ---------- CTA FINAL ---------- */
+#contacto {
+  text-align: center;
+  margin-bottom: 100px;
+}
+
+#contacto h2 {
+  font-size: 2.4rem;
+  font-weight: 800;
+  color: #0a66ff;
+}
+
+#contacto p {
+  margin-top: 15px;
+  color: #555;
+  font-size: 1.15rem;
+}
+
+#contacto a {
+  margin-top: 25px;
+  display: inline-block;
+  padding: 15px 35px;
+  background: #0a66ff;
+  color: white;
+  font-size: 1.2rem;
+  border-radius: 12px;
+  font-weight: 700;
+  box-shadow: 0 6px 20px rgba(10,102,255,0.3);
+}
+
+/* ---------- FOOTER ---------- */
+footer {
+  text-align: center;
+  padding: 25px;
+  font-size: 0.95rem;
+  color: #777;
+}
+</style>
 </head>
+
 <body>
-  <header>
-    <h1>RJVS DIYTech Solutions</h1>
-    <p>Servicios profesionales de soporte técnico, redes y mantenimiento • Puerto Vallarta</p>
-  </header>
 
-  <section class="contenedor">
-    <h2 style="text-align:center; margin-bottom:1.5rem; font-size:2rem; color:#1d3557;">Servicios Disponibles</h2>
-    <div class="servicios-grid">
+<!-- NAV -->
+<nav>
+  <div class="logo">RJVS</div>
+  <div>
+    <a href="#servicios">Servicios</a>
+    <a href="#beneficios">Beneficios</a>
+    <a href="#contacto" class="btn-nav">Cotizar</a>
+  </div>
+</nav>
 
-      <div class="servicio">
-        <h3>💻 Instalación de Software</h3>
-        <p>Instalación y configuración de software profesional: ofimática, diseño, arquitectura, edición, contabilidad y más.</p>
-        <p>🔹 Instalación limpia<br>🔹 Activación legítima (si aplica)<br>🔹 Eliminación de conflictos y versiones antiguas</p>
-      </div>
+<!-- HERO -->
+<div class="hero">
+  <h1>Soporte Técnico Profesional<br>para Empresas y Hogares</h1>
+  <p>Optimiza tu infraestructura, reduce fallas y recibe atención confiable con un servicio técnico moderno y eficiente.</p>
 
-      <div class="servicio">
-        <h3>⚙️ Optimización de PC</h3>
-        <p>Deja tu equipo funcionando como nuevo.</p>
-        <p>🔹 Limpieza profunda del sistema<br>🔹 Aceleración de arranque<br>🔹 Corrección de errores<br>🔹 Mejora de rendimiento general</p>
-      </div>
+  <div class="hero-buttons">
+    <a class="btn-primary" href="#contacto">Cotizar ahora</a>
+    <a class="btn-secondary" href="https://wa.me/523221350635">WhatsApp</a>
+  </div>
+</div>
 
-      <div class="servicio">
-        <h3>🔧 Reparación de PC y Laptops</h3>
-        <p>Diagnóstico y reparación profesional de fallas comunes y avanzadas.</p>
-        <p>🔹 Formateo y reinstalación<br>🔹 Reparación de Windows<br>🔹 Cambio de disco / memoria<br>🔹 Limpieza interna completa</p>
-      </div>
+<!-- SERVICIOS -->
+<section id="servicios">
+  <h2>Servicios Profesionales</h2>
 
-      <div class="servicio">
-        <h3>📱 Reparación de Celulares</h3>
-        <p>Solución de problemas comunes de software y mantenimiento preventivo.</p>
-        <p>🔹 Eliminación de virus<br>🔹 Recuperación de sistema<br>🔹 Optimización de rendimiento<br>🔹 Respaldo seguro</p>
-      </div>
+  <div class="servicios-grid">
 
-      <div class="servicio">
-        <h3>🌐 Redes y Configuración de Internet</h3>
-        <p>Instalación, mantenimiento y optimización de redes domésticas o empresariales.</p>
-        <p>🔹 Configuración de módems y routers<br>🔹 Extensión de WiFi<br>🔹 Diagnóstico de lentitud<br>🔹 Solución de fallas de conexión<br>🔹 Configuración de seguridad</p>
-      </div>
-
+    <div class="card">
+      <h3>Soporte Empresarial</h3>
+      <p>Mantenimiento preventivo y correctivo para equipos de oficina, redes y sistemas.</p>
     </div>
-  </section>
 
-  <footer class="footer">
-    <p>RJVS DIYTech Solutions • Puerto Vallarta, Jalisco</p>
-    <p>Soporte Técnico Profesional • Redes • PC • Laptops • Celulares</p>
-  </footer>
+    <div class="card">
+      <h3>Redes & Conectividad</h3>
+      <p>Configuración de routers, switches, cableado estructurado, WiFi, VLANs y seguridad.</p>
+    </div>
+
+    <div class="card">
+      <h3>Optimización de Equipos</h3>
+      <p>Limpieza profunda, reducción de temperatura, optimización de rendimiento y estabilidad.</p>
+    </div>
+
+    <div class="card">
+      <h3>Renovación Tecnológica</h3>
+      <p>Actualización de hardware, instalación de software, migraciones y mejoras de red.</p>
+    </div>
+
+    <div class="card">
+      <h3>Inventario TI</h3>
+      <p>Control de activos, revisiones periódicas, reportes y auditoría ligera.</p>
+    </div>
+
+    <div class="card">
+      <h3>Soporte Remoto</h3>
+      <p>Asistencia inmediata vía TeamViewer, AnyDesk o escritorio remoto.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- BENEFICIOS -->
+<section id="beneficios">
+  <h2>Beneficios</h2>
+
+  <div class="beneficios-box">
+    <div class="beneficio">⚡ Atención rápida y profesional</div>
+    <div class="beneficio">💰 Reducción de costos operativos</div>
+    <div class="beneficio">📈 Equipos más rápidos y estables</div>
+    <div class="beneficio">🔐 Seguridad mejorada</div>
+    <div class="beneficio">🧠 Consultoría y asesoría TI</div>
+    <div class="beneficio">♻️ Vida útil prolongada</div>
+  </div>
+</section>
+
+<!-- CONTACTO -->
+<section id="contacto">
+  <h2>Hablemos de tus necesidades</h2>
+  <p>¿Quieres cotizar o programar una visita? Escríbeme y te respondo rápido.</p>
+  <a href="https://wa.me/523221350635">Enviar mensaje</a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  © 2025 RJVS Tech Solutions – Soporte Técnico y Redes
+</footer>
 
 </body>
 </html>
