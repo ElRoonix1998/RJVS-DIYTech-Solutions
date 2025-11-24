@@ -1,314 +1,160 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>RJVS Tech Solutions</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RJVS Tech Solutions</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: #f2f5f9;
+      color: #1a1a1a;
+    }
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    .header {
+      background: linear-gradient(135deg, #003b73, #007bff);
+      padding: 40px 20px;
+      text-align: center;
+      color: white;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+    }
 
-<style>
-/* ---------- RESET ---------- */
-* {
-  margin: 0; padding: 0;
-  box-sizing: border-box;
-  font-family: "Inter", sans-serif;
-}
+    .header h1 {
+      margin: 0;
+      font-size: 2.5rem;
+      font-weight: 800;
+    }
 
-body {
-  background: linear-gradient(135deg, #e9efff 0%, #f5f8ff 40%, #ffffff 100%);
-  color: #1b1b1d;
-  overflow-x: hidden;
-}
+    .header p {
+      margin-top: 8px;
+      font-size: 1.1rem;
+      opacity: 0.9;
+    }
 
-/* ---------- NAV ---------- */
-nav {
-  max-width: 1200px;
-  margin: 25px auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 20px;
-}
+    .container {
+      max-width: 1100px;
+      margin: 40px auto;
+      background: white;
+      border-radius: 18px;
+      padding: 40px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+      display: grid;
+      grid-template-columns: 1fr 350px;
+      gap: 40px;
+    }
 
-.logo {
-  font-size: 1.8rem;
-  font-weight: 800;
-  color: #0a66ff;
-}
+    h2 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
 
-nav a {
-  margin-left: 30px;
-  font-size: 1rem;
-  color: #333;
-  font-weight: 500;
-}
+    .service-list p {
+      display: flex;
+      justify-content: space-between;
+      font-size: 1.1rem;
+      padding: 10px 0;
+      border-bottom: 1px solid #e6e6e6;
+    }
 
-.btn-nav {
-  background: #0a66ff;
-  padding: 10px 22px;
-  border-radius: 8px;
-  color: #fff;
-  font-weight: 600;
-}
+    .price {
+      font-weight: 700;
+      color: #007bff;
+    }
 
-/* ---------- HERO ---------- */
-.hero {
-  max-width: 1200px;
-  margin: 80px auto;
-  text-align: center;
-  padding: 0 20px;
-}
+    .side-box {
+      background: #003b73;
+      color: white;
+      padding: 30px;
+      border-radius: 16px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+    }
 
-.hero h1 {
-  font-size: 3.8rem;
-  font-weight: 800;
-  color: #0a66ff;
-  line-height: 1.1;
-}
+    .side-box h3 {
+      margin-top: 0;
+      font-size: 1.5rem;
+      font-weight: 800;
+    }
 
-.hero p {
-  margin-top: 20px;
-  font-size: 1.25rem;
-  color: #444;
-}
+    .contact-number {
+      font-size: 1.6rem;
+      font-weight: bold;
+      margin: 10px 0;
+    }
 
-.hero-buttons {
-  margin-top: 35px;
-}
+    .side-box ul {
+      padding-left: 20px;
+      margin-top: 10px;
+    }
 
-.hero-buttons a {
-  padding: 14px 32px;
-  border-radius: 10px;
-  font-size: 1.1rem;
-  font-weight: 600;
-  margin: 0 12px;
-  transition: 0.2s ease;
-}
+    .btn-whatsapp {
+      margin-top: 25px;
+      padding: 15px;
+      background: #25D366;
+      color: white;
+      font-weight: bold;
+      text-align: center;
+      border-radius: 10px;
+      text-decoration: none;
+      display: block;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      transition: 0.2s;
+    }
 
-.btn-primary {
-  background: #0a66ff;
-  color: white;
-  box-shadow: 0 6px 20px rgba(10,102,255,0.3);
-}
+    .btn-whatsapp:hover {
+      background: #1ebe5c;
+    }
 
-.btn-primary:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 25px rgba(10,102,255,0.4);
-}
-
-.btn-secondary {
-  border: 2px solid #0a66ff;
-  color: #0a66ff;
-}
-
-.btn-secondary:hover {
-  background: #0a66ff;
-  color: white;
-}
-
-/* ---------- SECCIONES GENERALES ---------- */
-section {
-  max-width: 1200px;
-  margin: 70px auto;
-  padding: 0 20px;
-}
-
-/* ---------- SERVICIOS ---------- */
-#servicios h2 {
-  font-size: 2.6rem;
-  color: #0a66ff;
-  text-align: center;
-  margin-bottom: 50px;
-  font-weight: 800;
-}
-
-.servicios-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
-  gap: 35px;
-}
-
-.card {
-  background: rgba(255,255,255,0.6);
-  backdrop-filter: blur(16px);
-  padding: 25px;
-  border-radius: 18px;
-  border: 1px solid rgba(200,200,200,0.4);
-  box-shadow: 0 4px 20px rgba(0,0,0,0.05);
-  transition: 0.25s ease;
-}
-
-.card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 8px 25px rgba(0,0,0,0.1);
-}
-
-.card h3 {
-  font-size: 1.3rem;
-  color: #0a66ff;
-  margin-bottom: 10px;
-}
-
-.card p {
-  font-size: 1rem;
-  color: #444;
-  line-height: 1.5;
-}
-
-/* ---------- BENEFICIOS ---------- */
-#beneficios h2 {
-  font-size: 2.6rem;
-  text-align: center;
-  color: #0a66ff;
-  margin-bottom: 40px;
-  font-weight: 800;
-}
-
-.beneficios-box {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 25px;
-}
-
-.beneficio {
-  background: #0a66ff;
-  padding: 18px 25px;
-  border-radius: 14px;
-  color: white;
-  font-weight: 500;
-  min-width: 240px;
-  text-align: center;
-}
-
-/* ---------- CTA FINAL ---------- */
-#contacto {
-  text-align: center;
-  margin-bottom: 100px;
-}
-
-#contacto h2 {
-  font-size: 2.4rem;
-  font-weight: 800;
-  color: #0a66ff;
-}
-
-#contacto p {
-  margin-top: 15px;
-  color: #555;
-  font-size: 1.15rem;
-}
-
-#contacto a {
-  margin-top: 25px;
-  display: inline-block;
-  padding: 15px 35px;
-  background: #0a66ff;
-  color: white;
-  font-size: 1.2rem;
-  border-radius: 12px;
-  font-weight: 700;
-  box-shadow: 0 6px 20px rgba(10,102,255,0.3);
-}
-
-/* ---------- FOOTER ---------- */
-footer {
-  text-align: center;
-  padding: 25px;
-  font-size: 0.95rem;
-  color: #777;
-}
-</style>
+  </style>
 </head>
-
 <body>
 
-<!-- NAV -->
-<nav>
-  <div class="logo">RJVS</div>
-  <div>
-    <a href="#servicios">Servicios</a>
-    <a href="#beneficios">Beneficios</a>
-    <a href="#contacto" class="btn-nav">Cotizar</a>
-  </div>
-</nav>
+  <header class="header">
+    <h1>RJVS Tech Solutions</h1>
+    <p>Soporte técnico • Optimización • Recuperación de datos • Servicio profesional</p>
+  </header>
 
-<!-- HERO -->
-<div class="hero">
-  <h1>Soporte Técnico Profesional<br>para Empresas y Hogares</h1>
-  <p>Optimiza tu infraestructura, reduce fallas y recibe atención confiable con un servicio técnico moderno y eficiente.</p>
+  <div class="container">
 
-  <div class="hero-buttons">
-    <a class="btn-primary" href="#contacto">Cotizar ahora</a>
-    <a class="btn-secondary" href="https://wa.me/523221350635">WhatsApp</a>
-  </div>
-</div>
-
-<!-- SERVICIOS -->
-<section id="servicios">
-  <h2>Servicios Profesionales</h2>
-
-  <div class="servicios-grid">
-
-    <div class="card">
-      <h3>Soporte Empresarial</h3>
-      <p>Mantenimiento preventivo y correctivo para equipos de oficina, redes y sistemas.</p>
+    <div>
+      <h2>Servicios Técnicos</h2>
+      <div class="service-list">
+        <p>Mantenimiento preventivo y correctivo <span class="price">$300</span></p>
+        <p>Instalación de software estudiantil <span class="price">$200</span></p>
+        <p>Optimización del equipo <span class="price">$250</span></p>
+        <p>Recuperación de archivos borrados <span class="price">$250</span></p>
+        <p>Restauración de fábrica <span class="price">$200</span></p>
+        <p>Restablecimiento de contraseña <span class="price">$200</span></p>
+        <p>Eliminación de virus <span class="price">$200</span></p>
+        <p>Reinstalación de sistema operativo <span class="price">$250</span></p>
+        <p>Cambio de HDD a SSD <span class="price">$300</span></p>
+      </div>
     </div>
 
-    <div class="card">
-      <h3>Redes & Conectividad</h3>
-      <p>Configuración de routers, switches, cableado estructurado, WiFi, VLANs y seguridad.</p>
-    </div>
+    <div class="side-box">
+      <div>
+        <h3>Contacto</h3>
+        <div class="contact-number">📞 322 353 3329</div>
+        <p>Zona: Puerto Vallarta</p>
+        <p>Modalidad: Domicilio o remota</p>
 
-    <div class="card">
-      <h3>Optimización de Equipos</h3>
-      <p>Limpieza profunda, reducción de temperatura, optimización de rendimiento y estabilidad.</p>
-    </div>
+        <h3>Incluye</h3>
+        <ul>
+          <li>Asesoría para instalación de software</li>
+          <li>Diagnóstico profesional</li>
+          <li>Presupuesto sin compromiso</li>
+          <li>Recuperación de datos y backups</li>
+        </ul>
+      </div>
 
-    <div class="card">
-      <h3>Renovación Tecnológica</h3>
-      <p>Actualización de hardware, instalación de software, migraciones y mejoras de red.</p>
-    </div>
-
-    <div class="card">
-      <h3>Inventario TI</h3>
-      <p>Control de activos, revisiones periódicas, reportes y auditoría ligera.</p>
-    </div>
-
-    <div class="card">
-      <h3>Soporte Remoto</h3>
-      <p>Asistencia inmediata vía TeamViewer, AnyDesk o escritorio remoto.</p>
+      <a class="btn-whatsapp" href="https://wa.me/523223533329" target="_blank">Contactar por WhatsApp</a>
     </div>
 
   </div>
-</section>
-
-<!-- BENEFICIOS -->
-<section id="beneficios">
-  <h2>Beneficios</h2>
-
-  <div class="beneficios-box">
-    <div class="beneficio">⚡ Atención rápida y profesional</div>
-    <div class="beneficio">💰 Reducción de costos operativos</div>
-    <div class="beneficio">📈 Equipos más rápidos y estables</div>
-    <div class="beneficio">🔐 Seguridad mejorada</div>
-    <div class="beneficio">🧠 Consultoría y asesoría TI</div>
-    <div class="beneficio">♻️ Vida útil prolongada</div>
-  </div>
-</section>
-
-<!-- CONTACTO -->
-<section id="contacto">
-  <h2>Hablemos de tus necesidades</h2>
-  <p>¿Quieres cotizar o programar una visita? Escríbeme y te respondo rápido.</p>
-  <a href="https://wa.me/523221350635">Enviar mensaje</a>
-</section>
-
-<!-- FOOTER -->
-<footer>
-  © 2025 RJVS Tech Solutions – Soporte Técnico y Redes
-</footer>
 
 </body>
 </html>
