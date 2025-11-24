@@ -11,7 +11,6 @@
       background: #f2f5f9;
       color: #1a1a1a;
     }
-
     .header {
       background: linear-gradient(135deg, #003b73, #007bff);
       padding: 40px 20px;
@@ -19,18 +18,8 @@
       color: white;
       box-shadow: 0 4px 20px rgba(0,0,0,0.2);
     }
-
-    .header h1 {
-      margin: 0;
-      font-size: 2.5rem;
-      font-weight: 800;
-    }
-
-    .header p {
-      margin-top: 8px;
-      font-size: 1.1rem;
-      opacity: 0.9;
-    }
+    .header h1 { margin: 0; font-size: 2.5rem; font-weight: 800; }
+    .header p { margin-top: 8px; font-size: 1.1rem; opacity: 0.9; }
 
     .container {
       max-width: 1100px;
@@ -44,24 +33,24 @@
       gap: 40px;
     }
 
-    h2 {
-      font-size: 1.8rem;
-      font-weight: 700;
-      margin-bottom: 20px;
+    @media(max-width: 900px){
+       .container { grid-template-columns: 1fr; padding: 25px; }
     }
+
+    h2 { font-size: 1.8rem; font-weight: 700; margin-bottom: 20px; }
 
     .service-list p {
       display: flex;
       justify-content: space-between;
       font-size: 1.1rem;
-      padding: 10px 0;
+      padding: 12px 0;
       border-bottom: 1px solid #e6e6e6;
+      cursor: pointer;
+      transition: 0.2s;
     }
+    .service-list p:hover { background: #f0f4ff; }
 
-    .price {
-      font-weight: 700;
-      color: #007bff;
-    }
+    .price { font-weight: 700; color: #007bff; }
 
     .side-box {
       background: #003b73;
@@ -74,22 +63,10 @@
       box-shadow: 0 6px 20px rgba(0,0,0,0.2);
     }
 
-    .side-box h3 {
-      margin-top: 0;
-      font-size: 1.5rem;
-      font-weight: 800;
-    }
+    .side-box h3 { margin-top: 0; font-size: 1.5rem; font-weight: 800; }
+    .contact-number { font-size: 1.6rem; font-weight: bold; margin: 10px 0; }
 
-    .contact-number {
-      font-size: 1.6rem;
-      font-weight: bold;
-      margin: 10px 0;
-    }
-
-    .side-box ul {
-      padding-left: 20px;
-      margin-top: 10px;
-    }
+    .side-box ul { padding-left: 20px; margin-top: 10px; }
 
     .btn-whatsapp {
       margin-top: 25px;
@@ -104,57 +81,111 @@
       box-shadow: 0 4px 10px rgba(0,0,0,0.2);
       transition: 0.2s;
     }
+    .btn-whatsapp:hover { background: #1ebe5c; }
 
-    .btn-whatsapp:hover {
-      background: #1ebe5c;
+    /* POPUP */
+    .popup-bg {
+      position: fixed;
+      top:0; left:0;
+      width:100%; height:100%;
+      background: rgba(0,0,0,0.6);
+      display:none;
+      align-items:center;
+      justify-content:center;
+      padding:20px;
     }
 
+    .popup-box {
+      background:white;
+      max-width:450px;
+      width:100%;
+      padding:25px;
+      border-radius:15px;
+      box-shadow:0 10px 30px rgba(0,0,0,0.25);
+      animation: pop 0.25s ease;
+    }
+
+    @keyframes pop {
+      from { transform: scale(0.8); opacity:0; }
+      to { transform: scale(1); opacity:1; }
+    }
+
+    .popup-box h3 { margin-top:0; }
+
+    .popup-close {
+      background:#d00;
+      color:white;
+      padding:8px 12px;
+      cursor:pointer;
+      border-radius:6px;
+      float:right;
+    }
   </style>
 </head>
 <body>
 
-  <header class="header">
-    <h1>RJVS Tech Solutions</h1>
-    <p>Soporte técnico • Optimización • Recuperación de datos • Servicio profesional</p>
-  </header>
+<header class="header">
+  <h1>RJVS Tech Solutions</h1>
+  <p>Soporte técnico • Optimización • Recuperación de datos • Servicio profesional</p>
+</header>
 
-  <div class="container">
+<div class="container">
 
-    <div>
-      <h2>Servicios Técnicos</h2>
-      <div class="service-list">
-        <p>Mantenimiento preventivo y correctivo <span class="price">$300</span></p>
-        <p>Instalación de software estudiantil <span class="price">$200</span></p>
-        <p>Optimización del equipo <span class="price">$250</span></p>
-        <p>Recuperación de archivos borrados <span class="price">$250</span></p>
-        <p>Restauración de fábrica <span class="price">$200</span></p>
-        <p>Restablecimiento de contraseña <span class="price">$200</span></p>
-        <p>Eliminación de virus <span class="price">$200</span></p>
-        <p>Reinstalación de sistema operativo <span class="price">$250</span></p>
-        <p>Cambio de HDD a SSD <span class="price">$300</span></p>
-      </div>
+  <div>
+    <h2>Servicios Técnicos</h2>
+    <div class="service-list">
+      <p onclick="openPopup('Mantenimiento preventivo y correctivo','Incluye limpieza interna, pasta térmica, diagnóstico, optimización profunda.')">Mantenimiento preventivo y correctivo <span class="price">$300</span></p>
+      <p onclick="openPopup('Instalación de software estudiantil','Instalación de herramientas académicas de arquitectura, diseño, oficina, etc.')">Instalación de software estudiantil <span class="price">$200</span></p>
+      <p onclick="openPopup('Optimización del equipo','Aceleración del sistema, eliminación de basura, desfragmentación y mejoras de rendimiento.')">Optimización del equipo <span class="price">$250</span></p>
+      <p onclick="openPopup('Recuperación de archivos borrados','Recuperación de datos eliminados o dañados en HDD/SSD/USB.')">Recuperación de archivos borrados <span class="price">$250</span></p>
+      <p onclick="openPopup('Restauración de fábrica','Restablecimiento del sistema a estado original con respaldo si es necesario.')">Restauración de fábrica <span class="price">$200</span></p>
+      <p onclick="openPopup('Restablecimiento de contraseña','Recuperación o restablecimiento seguro sin pérdida de datos.')">Restablecimiento de contraseña <span class="price">$200</span></p>
+      <p onclick="openPopup('Eliminación de virus','Limpieza de malware, spyware y reparación de daños del sistema.')">Eliminación de virus <span class="price">$200</span></p>
+      <p onclick="openPopup('Reinstalación de sistema operativo','Formato, instalación limpia, drivers y software esencial.')">Reinstalación de sistema operativo <span class="price">$250</span></p>
+      <p onclick="openPopup('Cambio de HDD a SSD','Migración, clonación y mejora inmediata de velocidad.')">Cambio de HDD a SSD <span class="price">$300</span></p>
     </div>
-
-    <div class="side-box">
-      <div>
-        <h3>Contacto</h3>
-        <div class="contact-number">📞 322 353 3329</div>
-        <p>Zona: Puerto Vallarta</p>
-        <p>Modalidad: Domicilio o remota</p>
-
-        <h3>Incluye</h3>
-        <ul>
-          <li>Asesoría para instalación de software</li>
-          <li>Diagnóstico profesional</li>
-          <li>Presupuesto sin compromiso</li>
-          <li>Recuperación de datos y backups</li>
-        </ul>
-      </div>
-
-      <a class="btn-whatsapp" href="https://wa.me/523223533329" target="_blank">Contactar por WhatsApp</a>
-    </div>
-
   </div>
+
+  <div class="side-box">
+    <div>
+      <h3>Contacto</h3>
+      <div class="contact-number">📞 322 353 3329</div>
+      <p>Zona: Puerto Vallarta</p>
+      <p>Modalidad: Domicilio o remota</p>
+
+      <h3>Incluye</h3>
+      <ul>
+        <li>Asesoría para instalación de software</li>
+        <li>Diagnóstico profesional</li>
+        <li>Presupuesto sin compromiso</li>
+        <li>Recuperación de datos y backups</li>
+      </ul>
+    </div>
+
+    <a class="btn-whatsapp" href="https://wa.me/523223533329" target="_blank">Contactar por WhatsApp</a>
+  </div>
+
+</div>
+
+<!-- POPUP -->
+<div class="popup-bg" id="popup">
+  <div class="popup-box">
+    <span class="popup-close" onclick="closePopup()">Cerrar</span>
+    <h3 id="popup-title"></h3>
+    <p id="popup-desc"></p>
+  </div>
+</div>
+
+<script>
+  function openPopup(title, desc){
+    document.getElementById('popup-title').innerText = title;
+    document.getElementById('popup-desc').innerText = desc;
+    document.getElementById('popup').style.display = 'flex';
+  }
+  function closePopup(){
+    document.getElementById('popup').style.display = 'none';
+  }
+</script>
 
 </body>
 </html>
